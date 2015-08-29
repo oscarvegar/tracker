@@ -9,6 +9,11 @@ module.exports = {
 
   attributes: {
 
+  	solicitudes:{
+  		collection: 'solicitud',
+  		via:'usuario'
+  	}
+
   }
 };
 

@@ -8,7 +8,10 @@
 module.exports = {
 
   attributes: {
-
+  	unidades:{
+  		collection:'unidad',
+  		via:'park'
+  	}
   }
 };
 

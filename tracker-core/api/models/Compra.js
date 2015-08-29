@@ -11,6 +11,14 @@ module.exports = {
 
   	solicutd:{
   		model: 'solicitud'
+  	},
+
+  	unidad:{
+  		model: 'unidad'
+  	},
+
+  	cedis:{
+  		model:'cedis'
   	}
 
   }

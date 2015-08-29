@@ -8,6 +8,19 @@
 module.exports = {
 
   attributes: {
+  	
+  	conductor:{
+  		model:'conductor'
+  	},
+  	
+  	park:{
+  		model:'park'
+  	},
+
+  	compras:{
+  		collection:'compra',
+		via:'unidad'
+  	}
 
   }
 };

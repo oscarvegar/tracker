@@ -9,6 +9,28 @@ module.exports = {
 
   attributes: {
 
+  	productos:{
+  		collection:'producto',
+  		via: 'solicitudes'
+  	},
+
+  	usuario:{
+  		model:'usuario'
+  	},
+
+  	obra:{
+  		model:'obra'
+  	},
+
+  	compras:{
+  		collection:'compra',
+  		via:'solicitud'
+  	},
+
+  	unidad:{
+  		model:'unidades'
+  	}
+
   }
 };
 
