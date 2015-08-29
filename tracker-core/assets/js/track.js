@@ -2,12 +2,18 @@
  * Created by oscar on 5/04/15.
  */
 var app = angular.module( "TrackApp", ['ngRoute', 'LoginApp'] );
-app.controller( "TrackController", function($scope, $http, $rootScope, $location) {
+app.controller("TrackController", function($scope, $http, $rootScope, $location) {
 
 });
 
+app.controller("MainCtrl",function($rootScope){
+   $rootScope.tituloPagina = "Live Dashboard";
+  $rootScope.iconoPagina = "icon-bar-chart";
+})
+
+
 app.config(function( $routeProvider, $locationProvider){
-  
+ 
   //localStorage.clear();
 });
 
