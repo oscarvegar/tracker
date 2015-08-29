@@ -9,7 +9,7 @@ module.exports = {
 
   attributes: {
 
-  	solicutd:{
+  	solicitud:{
   		model: 'solicitud'
   	},
 

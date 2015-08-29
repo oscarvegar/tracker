@@ -10,7 +10,7 @@ module.exports = {
   attributes: {
 
   	productos:{
-  		collection:'producto',
+  		collection:'productos',
   		via: 'solicitudes'
   	},
 
@@ -28,7 +28,7 @@ module.exports = {
   	},
 
   	unidad:{
-  		model:'unidades'
+  		model:'unidad'
   	}
 
   }
