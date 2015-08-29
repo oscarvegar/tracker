@@ -1,25 +1,27 @@
 /**
  * Created by oscar on 5/04/15.
  */
-var app = angular.module( "TrackApp", ['ngRoute', 'LoginApp'] );
+var app = angular.module( "TrackApp", ['ui.router', 'LoginApp'] );
+
 app.controller("TrackController", function($scope, $http, $rootScope, $location) {
-$rootScope.tituloPagina = "Live Dashboard";
+  $rootScope.tituloPagina = "Live Dashboard";
   $rootScope.iconoPagina = "icon-bar-chart";
 });
 
-app.config(function( $stateProvider, $urlRouterProvider ){
-  /*
-  $urlRouterProvider.otherwise('/app/home');
+app.config(function( $stateProvider, $urlRouterProvider, $locationProvider ){
+  
+  $urlRouterProvider.otherwise('dashboard');
   $stateProvider.
-      state('app.home',{
+      state('dashboard',{
         url: '/',
-        templateUrl: ''
-      }).
-      state('app.',{
-        url: '/entradas/agregar',
-        templateUrl: 'templates/entradas/entrada.add.html'
+        templateUrl: 'templates/dashboard.html'
       });
-  */
+
+  $locationProvider.html5Mode({
+  enabled: true,
+  requireBase: false
+});
+
 });
 
 app.directive('onlyDigits', function () {
