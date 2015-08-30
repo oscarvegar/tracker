@@ -19,6 +19,17 @@ app.controller( "DashboardCtrl", function($scope, $http, $rootScope, $location, 
 		  	
 	   	}); 
 
+        $http.get('/api/tracking/stopped').then(function(res) {
+            console.log("Se detecta una unidad detenida" , angular.toJson(res.data.puntos));
+            $scope.detenidos = res.data.puntos;
+            for(var p in $scope.detenidos){
+                var icon = $scope.detenidos[p].icon;
+                $scope.detenidos[p].icon = {};
+                $scope.detenidos[p].icon.url = icon;
+                $scope.detenidos[p].icon.scaledSize = $scope.markerIconSize;
+            }
+        });
+
 	}
 
 	io.socket.on('updateTracker',function(obj){

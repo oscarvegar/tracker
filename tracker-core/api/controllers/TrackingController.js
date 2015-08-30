@@ -45,7 +45,21 @@ module.exports = {
 	 	})
 	 	//console.log( "Params: ", params );
 	  	
-	 }
+	 },
 	
+    stopped:function(req,res){
+	  	var promesas = [];
+        promesas.push( Conductor.find({"idref":{$gt:50}}) );
+	  	Q.all(promesas).allSettled(promesas).then(function(result){
+		   	var puntos = [];
+		   	for(var rProm in result){
+		   		var arrayData = result[rProm];
+		   		puntos = puntos.concat(arrayData.value);
+		   	}
+		   	res.json({puntos: puntos});
+		}).catch(function(err){
+			console.error("Error al ejecutar promesas: ", err);
+		});
+    }
 };
 
