@@ -23,12 +23,11 @@ app.config(function( $stateProvider, $urlRouterProvider, $locationProvider ){
         url:'/solicitud',
         templateUrl: 'templates/solicitud.html',
         controller: 'SolicitudCtrl'
-      });
+      })
   .state('unauthorized',{
     url: '/unauthorized',
     templateUrl: 'templates/forbidden.html'
-  }
-  );
+  });
 
   $locationProvider.html5Mode({
   enabled: true,
