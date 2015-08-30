@@ -5,14 +5,16 @@ app.controller( "DashboardCtrl", function($scope, $http, $rootScope, $location, 
 	$scope.ruta1 = {	
 						id: 1,
 						coords: {latitude:19.4286401, longitude:-99.1350092},
-						icon: '../images/icon-tracker.jpg'
+						icono: {url:'/home/temp/pickup_camper.png'}
 					};
-
+	$scope.puntos = [];
 	$scope.init = function(){
-	   console.info("EN INIT...")
-	   io.socket.get('/tracking/subscribe',function(res){
-	    console.info(res)
-	   }); 
+	   	console.info("EN INIT...")
+	   	io.socket.get('/tracking/subscribe',function(res){
+	  	console.info("res:::::  ", res)
+	  		$scope.puntos = res.puntos;
+	  		$scope.puntos[0].icono = {url:"../pickup_camper.png"};
+	   	}); 
 	}
 
 	io.socket.on('updateTracker',function(obj){
@@ -22,6 +24,17 @@ app.controller( "DashboardCtrl", function($scope, $http, $rootScope, $location, 
 		$scope.$apply();
 	});
 
-  $scope.init();
+	$scope.windowOptions = { visible: false, height:400 };
+
+    $scope.onClick = function() {
+        $scope.windowOptions.visible = !$scope.windowOptions.visible;
+    };
+
+    $scope.closeClick = function() {
+        $scope.windowOptions.visible = false;
+    };
+
+  	$scope.init();
+
 
 });

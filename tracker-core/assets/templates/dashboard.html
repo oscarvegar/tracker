@@ -4,8 +4,21 @@
 		.angular-google-map-container { height: 400px; }
 	</style>
 	<ui-gmap-google-map center='map.center' zoom='map.zoom'>
-		<ui-gmap-marker coords="ruta1.coords" idkey="ruta1.id" icon="ruta1.icon" >
+		<ui-gmap-marker coords="ruta1.coords" idkey="ruta1.id" icon="ruta1.icono" 
+			click="onClick()">
+			<ui-gmap-window options="windowOptions" closeClick="closeClick()">
+                <div style="font-size:10px;height:80px;">
+                	Conductor: Juanito Perez<br/>
+                	No. Econ: 2987321 <br/>
+                	Telefono: 5523988392<br/>
+                	<button>ver detalle</button><br/>
+                </div>
+            </ui-gmap-window>
         </ui-gmap-marker>
+
+		<ui-gmap-markers models="puntos" coords="'self'" icon="'icono'">
+        </ui-gmap-markers>
+
 	</ui-gmap-google-map>
 
 	<h4> FIN </h4>

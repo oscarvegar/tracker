@@ -11,12 +11,11 @@ app.controller("TrackController", function($scope, $http, $rootScope, $location)
 app.config(function( $stateProvider, $urlRouterProvider, $locationProvider ){
   
   $urlRouterProvider.otherwise('dashboard');
-  $stateProvider.
-      state('dashboard',{
-        url: '/',
-        templateUrl: 'templates/dashboard.html',
-        controller: 'DashboardCtrl'
-      });
+  $stateProvider.state('dashboard',{
+    url: '/',
+    templateUrl: 'templates/dashboard.html',
+    controller: 'DashboardCtrl'
+  });
 
   $locationProvider.html5Mode({
   enabled: true,
