@@ -421,22 +421,22 @@ var routesArry = [
 var genericRoutesIterator = function(x, routeArry) {
 	//console.log(routeArry, '********', x);
 	
-	 var URL_GET;
-	 if(routeArry.length == 1) {
-	 	var route = routeArry[routeArry.length-1];
-	 	URL_GET = 'https://maps.googleapis.com/maps/api/directions/json?origin=' + route.origin.latitude + ',' + route.origin.longitude
-		+ '&destination=' + route.destination.latitude + ',' + route.destination.longitude
-		+ '&key='+API_KEY
-	 } else {
-	 	URL_GET = 'https://maps.googleapis.com/maps/api/directions/json?origin=' + routeArry[0]
-		+ '&destination='+routeArry[routeArry.length-1]
-		+ '&waypoints='+routeArry.join('|')
-		+ '&key='+API_KEY
-	 }
-	 //console.log('URL_GET ::', URL_GET, '******', x);
+	var URL_GET;
+	if(routeArry.length == 1) {
+		var route = routeArry[routeArry.length-1];
+		URL_GET = 'https://maps.googleapis.com/maps/api/directions/json?origin=' + route.origin.latitude + ',' + route.origin.longitude
+			+ '&destination=' + route.destination.latitude + ',' + route.destination.longitude
+			+ '&key='+API_KEY
+	} else {
+		URL_GET = 'https://maps.googleapis.com/maps/api/directions/json?origin=' + routeArry[0]
+			+ '&destination='+routeArry[routeArry.length-1]
+			+ '&waypoints='+routeArry.join('|')
+			+ '&key='+API_KEY
+	}
+	//console.log('URL_GET ::', URL_GET, '******', x);
 
 	request(URL_GET, function (error, response, body) {
-	    //console.log(routeSteps); // Show the HTML for the Google homepage.
+	    // console.log(routeSteps); // Show the HTML for the Google homepage.
 		if (!error && response.statusCode == 200) {
 			//console.log(JSON.parse(body), x);
 
@@ -446,7 +446,7 @@ var genericRoutesIterator = function(x, routeArry) {
 				}, 1500);
 			}
 
-			var routeSteps = JSON.parse(body).routes[0].legs;
+			// var routeSteps = JSON.parse(body).routes[0].legs;
 			var routes = JSON.parse(body).routes;
 
 			// var recursivePolylinePoints = function(id, polylinePoints, index, cb, steps, stepIndex) {
@@ -455,6 +455,9 @@ var genericRoutesIterator = function(x, routeArry) {
 				if(index < polylinePoints.length) {
 					var polylinePoint = polylinePoints[index];
 
+					if(x < 15) {
+						timeout = timeout / 2;
+					}
 					setTimeout(function() {
 						var LatLongSplit = (polylinePoint + "").split(',');
 						var postObj = {

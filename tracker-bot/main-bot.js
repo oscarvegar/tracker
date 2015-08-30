@@ -446,7 +446,7 @@ var genericRoutesIterator = function(x, routeArry) {
 				}, 1500);
 			}
 
-			var routeSteps = JSON.parse(body).routes[0].legs;
+			// var routeSteps = JSON.parse(body).routes[0].legs;
 			var routes = JSON.parse(body).routes;
 
 			// var recursivePolylinePoints = function(id, polylinePoints, index, cb, steps, stepIndex) {
@@ -455,6 +455,9 @@ var genericRoutesIterator = function(x, routeArry) {
 				if(index < polylinePoints.length) {
 					var polylinePoint = polylinePoints[index];
 
+					if(x < 15) {
+						timeout = timeout / 2;
+					}
 					setTimeout(function() {
 						var LatLongSplit = (polylinePoint + "").split(',');
 						var postObj = {
