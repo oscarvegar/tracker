@@ -1,7 +1,7 @@
 /**
  * Created by oscar on 5/04/15.
  */
-var app = angular.module( "TrackApp", ['ui.router', 'LoginApp'] );
+var app = angular.module( "TrackApp", ['ui.router', 'LoginApp', 'track-dashboard'] );
 
 app.controller("TrackController", function($scope, $http, $rootScope, $location) {
   $rootScope.tituloPagina = "Live Dashboard";
@@ -14,7 +14,8 @@ app.config(function( $stateProvider, $urlRouterProvider, $locationProvider ){
   $stateProvider.
       state('dashboard',{
         url: '/',
-        templateUrl: 'templates/dashboard.html'
+        templateUrl: 'templates/dashboard.html',
+        controller: 'DashboardCtrl'
       });
 
   $locationProvider.html5Mode({
