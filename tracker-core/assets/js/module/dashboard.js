@@ -7,7 +7,7 @@ app.controller( "DashboardCtrl", function($scope, $http, $rootScope, $location, 
 	$scope.init = function(){
 	   	console.info("EN INIT...")
 	   	$scope.map = { center: { latitude: 19.432791, longitude: -99.1335314 }, zoom: 6 };
-	   	io.socket.get('/tracking/subscribe',function(res){
+	   	io.socket.get('/api/tracking/subscribe',function(res){
 		  	console.info("res:::::  ", res)
 		  	$scope.puntos = res.puntos;
 		  	for(var p in $scope.puntos){
