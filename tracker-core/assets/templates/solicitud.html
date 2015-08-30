@@ -1,0 +1,96 @@
+
+
+<div>
+  <div class="widget">
+              
+
+		        <div class="row-fluid">
+		            <div class="span7 row">
+		            <h1>{{titulo}}</h1>
+		             <br/>
+		             <br/>
+
+		            <div class="row">
+	                  <div class="col-xs-4">
+	                    <label>Responsable de la Obra</label>
+					    <input type="text" ng-model="pedido.User" class="form-control" ng-disabled="true">
+					  </div>  
+	                </div>
+ 					<br/>
+	                  <div class="form-group">
+					  <label for="sel1">Nombre de la Obra</label>
+					  <select class="form-control" id="sel1">
+					    <option>Torre Reforma</option>
+					    <option>Centro de Entrenamiento de Bolo</option>
+					    <option>Consejo de la Judicatura Federal</option>
+					  </select>
+			 		</div>
+
+ 					<br/>
+	 			 	<div class="form-group">
+					  <label for="sel1">Dirección de la Obra</label>
+					  <select class="form-control" id="sel1">
+					    <option>Reforma 296 col. Juarez D.P 06600</option>
+					    <option>Av. Aviación No. 5851 en la estrada Zapopan, Jalisco C.P. 45100</option>
+					    <option>Insurgentes 1961 San Angel Inn Alvaro Obregon</option>
+					  </select>
+				  	</div>
+
+
+		            <br/>
+		            <h3>Materiales</h3>
+		            
+		            <div class="col-xs-4" align="center" ng-repeat="producto in productos">
+		                    <h4>{{producto.Producto}}</h4>
+		                    <img class="" height="150" width="150" align="center" title="{{producto.Producto}}" 
+		                    src="{{producto.Imagen}}" />
+		                    <button class="btn btn-info btn-block" ng-click="agregar(producto)"> 
+		                        <i class="icon-plus-sign"></i>
+		                        Agregar a la Lista
+		                    </button>
+		            </div>
+		            </div>
+		            <br/>
+		            <div class="span5">
+		                <h3>Lista de Materiales</h3>
+		        
+		                <table class="table table-striped">
+		                    <thead>
+		                        <tr>
+		                            <th class="span1">Id</th>
+		                            <th class="span5">Producto</th>
+		                            <th class="span2">Cantidad</th>
+		                        </tr>
+		                    </thead>
+		                    <tbody>
+		                        <tr class="well" ng-repeat="item in lista">
+		                            <td>{{item.Producto.Id}}</td>
+		                            <td>{{item.Producto.Producto}}</td>
+		                            <td>
+		                                <input type="text" ng-model="item.Cantidad" />
+		                            </td>
+		                        </tr>
+		                    </tbody>
+		                </table>
+		            </div>
+					</br>
+					</br>
+					<div class="row">
+		            	<button type="button" class="btn btn-success" ng-click="open()">Ordenar Pedido</button>
+					</div>
+		        </div>
+
+            </div>
+
+
+
+
+ <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+            Launch demo modal
+        </button>
+        <div custom-modals modal-id="myModal" modal-title="Our Compiled Modal" modal-src="http://subliminalsources.com/wp-content/uploads/2014/08/modal-example.html"></div>
+
+
+            
+
+</div>

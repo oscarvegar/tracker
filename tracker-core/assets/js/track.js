@@ -1,12 +1,13 @@
 /**
  * Created by oscar on 5/04/15.
  */
-var app = angular.module( "TrackApp", ['ui.router', 'LoginApp'] );
+var app = angular.module( "TrackApp", ['ui.router', 'LoginApp','track-solicitud'] );
 
 app.controller("TrackController", function($scope, $http, $rootScope, $location) {
   $rootScope.tituloPagina = "Live Dashboard";
   $rootScope.iconoPagina = "icon-bar-chart";
 });
+
 
 app.config(function( $stateProvider, $urlRouterProvider, $locationProvider ){
   
@@ -15,7 +16,13 @@ app.config(function( $stateProvider, $urlRouterProvider, $locationProvider ){
       state('dashboard',{
         url: '/',
         templateUrl: 'templates/dashboard.html'
+      }).
+      state('solicitud',{
+        url:'/solicitud',
+        templateUrl: 'templates/solicitud.html',
+        controller: 'SolicitudCtrl'
       });
+
 
   $locationProvider.html5Mode({
   enabled: true,
