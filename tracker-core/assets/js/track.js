@@ -13,8 +13,8 @@ app.controller("TrackController", function($scope, $http, $rootScope, $location)
 app.config(function( $stateProvider, $urlRouterProvider, $locationProvider ){
   
   $urlRouterProvider.otherwise('dashboard');
-  $stateProvider.
-      state('dashboard',{
+ $stateProvider
+ .state('dashboard',{
         url: '/',
         templateUrl: 'templates/dashboard.html',
         controller: 'DashboardCtrl'
@@ -24,8 +24,11 @@ app.config(function( $stateProvider, $urlRouterProvider, $locationProvider ){
         templateUrl: 'templates/solicitud.html',
         controller: 'SolicitudCtrl'
       });
-
-
+  .state('unauthorized',{
+    url: '/unauthorized',
+    templateUrl: 'templates/forbidden.html'
+  }
+  );
 
   $locationProvider.html5Mode({
   enabled: true,
