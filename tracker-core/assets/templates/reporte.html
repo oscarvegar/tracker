@@ -1,0 +1,125 @@
+<div>
+	<div class="tab-pane" id="tab_table">
+        <div class="padded">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Id Pedido</th>
+              <th>Fecha de Pedido</th>
+              <th>Productos Ordenados</th>
+              <th>Nombre Repartidor</th>
+              <th>Codigo Unidad Repartidora</th>
+              <th>Estatus Pedido</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1011</td>
+              <td>{{date | date:'yyyy-MM-dd'}}</td>
+              <td>10</td>
+              <td>Ramón García Zarate</td>
+              <th>189892312</th>
+			  <th><span class="label label-default ng-binding" style="background-color: #fbca04;">
+                  Retrasado
+                </span></th>
+            </tr>
+            <tr>
+              <td>1027</td>
+              <td>{{date | date:'yyyy-MM-dd'}}</td>
+              <td>2</td>
+              <td>Carlos Villanueva Ortiz</td>
+              <th>174843298</th>
+			  <th><span class="label label-default ng-binding" style="background-color: #207de5;">
+                  Entregado
+                </span></th>
+            </tr>
+            <tr>
+              <td>1030</td>
+              <td>{{date | date:'yyyy-MM-dd'}}</td>
+              <td>1</td>
+              <td>Enrique Acosta Aguilar</td>
+              <th>284821123</th>
+			  <th><span class="label label-default ng-binding" style="background-color: #207de5;">
+                  Entregado
+                </span></th>
+            </tr>
+            <tr>
+              <td>1035</td>
+              <td>{{date | date:'yyyy-MM-dd'}}</td>
+              <td>3</td>
+              <td>Israel Mendieta Pacheco</td>
+              <th>164365433</th>
+			  <th><span class="label label-default ng-binding" style="background-color: #fbca04;">
+                  Retrasado
+                </span></th>
+            </tr>
+            <tr>
+              <td>1040</td>
+              <td>{{date | date:'yyyy-MM-dd'}}</td>
+              <td>6</td>
+              <td>Hugo Escobar Cuanalo</td>
+              <th>134332987</th>
+			  <th><span class="label label-default ng-binding" style="background-color: #e11d21;">
+                 Fuera de Tiempo
+                </span></th>
+            </tr>
+            <tr>
+              <td>1043</td>
+              <td>{{date | date:'yyyy-MM-dd'}}</td>
+              <td>1</td>
+              <td>Antonio Molina Guajardo</td>
+              <th>134332345</th>
+			  <th><span class="label label-default ng-binding" style="background-color: #01DF01;">
+                 En Tiempo
+                </span></th>
+            </tr>
+            <tr>
+              <td>1050</td>
+              <td>{{date | date:'yyyy-MM-dd'}}</td>
+              <td>7</td>
+              <td>Sandro Reyes Miranda</td>
+              <th>131345433</th>
+			  <th><span class="label label-default ng-binding" style="background-color: #01DF01;">
+                 En Tiempo
+                </span></th>
+            </tr>
+            <tr>
+              <td>1051</td>
+              <td>{{date | date:'yyyy-MM-dd'}}</td>
+              <td>7</td>
+              <td>Efrain Medina Flores</td>
+              <th>132123345</th>
+			  <th><span class="label label-default ng-binding" style="background-color: #01DF01;">
+                 En Tiempo
+                </span></th>
+            </tr>
+			<tr>
+              <td>1057</td>
+              <td>{{date | date:'yyyy-MM-dd'}}</td>
+              <td>11</td>
+              <td>Cesar Montemayor Garza</td>
+              <th>156237893</th>
+			  <th><span class="label label-default ng-binding" style="background-color: #fbca04;">
+                 Retrasado
+                </span></th>
+            </tr>
+            <tr>
+              <td>1060</td>
+              <td>{{date | date:'yyyy-MM-dd'}}</td>
+              <td>12</td>
+              <td>Juan Carlos Fernandez Aguilar</td>
+              <th>145353627</th>
+			  <th><span class="label label-default ng-binding" style="background-color: #01DF01;">
+                 En Tiempo
+                </span></th>
+            </tr>
+
+          </tbody>
+        </table>
+        </div>
+
+
+         <pagination total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()"></pagination>
+
+    </div>
+</div>

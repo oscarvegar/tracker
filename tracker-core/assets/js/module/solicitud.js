@@ -1,7 +1,6 @@
 var app = angular.module( "track-solicitud", ['ui.router'] );
 app.controller( "SolicitudCtrl", function($scope, $http, $rootScope, $location) {
 
-	console.log("Entro controller solicitud");
 	$rootScope.tituloPagina = "Crear Solicitud";
     $rootScope.iconoPagina = "icon-edit";
 
