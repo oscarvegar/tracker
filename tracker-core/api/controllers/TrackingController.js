@@ -37,8 +37,14 @@ module.exports = {
 	 },
 
 	 update:function(req,res){
-	  sails.sockets.broadcast("dashboard","updateTracker", {data:"hola rafa"});
-	  res.json({code:1})
+	 	var params = req.allParams();
+	 	Conductor.findOne({idRef:params.id}).then(function(conductor){
+	 		params.conductor = conductor;
+	 		sails.sockets.broadcast("dashboard","updateTracker", {data:params} );
+	  		res.json({code:1})
+	 	})
+	 	//console.log( "Params: ", params );
+	  	
 	 }
 	
 };
