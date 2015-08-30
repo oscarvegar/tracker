@@ -968,6 +968,9 @@ var loopObjRoutes = function(x, route) {
 						};
 						//console.log(postObj);
 
+						if(index2 == 0) {
+							postObj['first'] = true;
+						}
 						
 						request.post({url: URL_POST, formData: postObj}, function optionalCallback(err, httpResponse, body) {
 							if (err) {
@@ -1088,6 +1091,9 @@ var loopArryRoutes = function(x, routeArry) {
 						};
 						//console.log(postObj);
 
+						if(index2 == 0) {
+							postObj['first'] = true;
+						}
 						
 						request.post({url: URL_POST, formData: postObj}, function optionalCallback(err, httpResponse, body) {
 							if (err) {
