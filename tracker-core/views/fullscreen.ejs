@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html ng-app="track-dashboard">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Sails Socket Dependancy -->
+  <script type="text/javascript" src="/js/dependencies/sails.io.js"></script>
+  
+  <link rel='stylesheet' href='assets/css/fullcalendar.css'>
+  <link rel='stylesheet' href='assets/css/datatables/datatables.css'>
+  <link rel='stylesheet' href='assets/css/datatables/bootstrap.datatables.css'>
+  <link rel='stylesheet' href='assets/scss/chosen.css'>
+  <link rel='stylesheet' href='assets/scss/font-awesome/font-awesome.css'>
+  <link rel='stylesheet' href='assets/css/app.css'>
+  <link rel='stylesheet' href='assets/css/tracker.css'>
+
+  <link href='http://fonts.googleapis.com/css?family=Oswald:300,400,700|Open+Sans:400,700,300' rel='stylesheet' type='text/css'>
+
+  <link href="assets/favicon.ico" rel="shortcut icon">
+  <link href="assets/apple-touch-icon.png" rel="apple-touch-icon">
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+@javascript html5shiv respond.min
+<![endif]-->
+
+<title>Grupo Tradeco S.A. de C.V.</title>
+
+</head>
+
+<body ng-controller="DashboardCtrl">
+<div>
+	<div class="row">
+		<style type="text/css">
+			.angular-google-map-container { height: 95vh; width:99%;}
+		</style>
+		<ui-gmap-google-map center='map.center' zoom='map.zoom' >
+			<ui-gmap-marker coords="ruta1.coords" idkey="ruta1.id" icon="ruta1.icono" 
+				click="onClick()">
+				<ui-gmap-window options="windowOptions" closeClick="closeClick()">
+	                <div style="font-size:10px;height:80px;">
+	                	Conductor: Juanito Perez<br/>
+	                	No. Econ: 2987321 <br/>
+	                	Telefono: 5523988392<br/>
+	                	<button>ver detalle</button><br/>
+	                </div>
+	            </ui-gmap-window>
+	        </ui-gmap-marker>
+
+			<ui-gmap-markers models="puntos" coords="'self'" icon="'icono'">
+	        </ui-gmap-markers>
+
+		</ui-gmap-google-map>
+	</div>
+</div>
+    <!-- Librerias -->
+    <script src="js/angular-1.3.8/angular.min.js"></script>
+    <script src="js/angular-1.3.8/angular-animate.js"></script>
+    <script src="js/angular-1.3.8/angular-route.min.js"></script>
+    <script src="js/angular-1.3.8/angular-input-match.js"></script>
+    <script src="js/angular-1.3.8/angular-ui/angular-ui-router.min.js"></script>
+
+    <!-- Google Map -->
+    <script src="js/angular-google-map/lodash.js"></script>  
+    <script src="js/angular-google-map/angular-google-maps.min.js"></script>  
+    <script src='//maps.googleapis.com/maps/api/js?sensor=false'></script>
+    <!-- Librerias -->
+    <script src="js/module/login.js"></script>  
+    <script src="js/module/dashboard.js"></script>  
+    <script src="js/track.js"></script>  
+
+  </body>
+
+  </html>

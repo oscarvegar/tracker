@@ -34,6 +34,12 @@ module.exports.routes = {
 
   '/': {
     view: 'homepage'
+  },
+  '/fullscreen':{
+    view:'403',
+    locals: {
+      layout: 'fullscreen'
+    }
   }
 
   /***************************************************************************
