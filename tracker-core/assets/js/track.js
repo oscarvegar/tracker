@@ -32,6 +32,10 @@ app.config(function( $stateProvider, $urlRouterProvider, $locationProvider ){
     templateUrl: 'templates/reporte.html',
     controller: 'ReporteCtrl'
   })
+  .state('detalle',{
+    url: '/detalle',
+    templateUrl: 'templates/detalle.html'
+  });
 
   $locationProvider.html5Mode({
   enabled: true,
