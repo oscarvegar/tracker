@@ -1,57 +1,7 @@
 'use strict';
 
-var Client = require('node-rest-client').Client;
-
 var API_KEY = "AIzaSyCY3mMw2d_n0myF8BDhnoc6rUMgFdIxOiQ";
-
-var client = new Client();
- /*
-// direct way 
-client.get("https://maps.googleapis.com/maps/api/directions/json?origin=Toronto&destination=Montreal&key="+API_KEY, function(data, response){
-            // parsed response body as js object 
-            console.log(data);
-            // raw response 
-            console.log(response);
-        });
- */
- 
- /*
-// registering remote methods 
-client.registerMethod("jsonMethod", "http://remote.site/rest/json/method", "GET");
- 
-client.methods.jsonMethod(function(data,response){
-    // parsed response body as js object 
-    console.log(data);
-    // raw response 
-    console.log(response);
-});
- */
-
-/**
- * Process an array of data synchronously.
- *
- * @param data An array of data.
- * @param processData A function that processes an item of data.
- *                    Signature: function(item, i, callback), where {@code item} is the i'th item,
- *                               {@code i} is the loop index value and {@code calback} is the
- *                               parameterless function to call on completion of processing an item.
- */
-function doSynchronousLoop(data, processData, done) {
-	if (data.length > 0) {
-		var loop = function(data, i, processData, done) {
-			processData(data[i], i, function() {
-				if (++i < data.length) {
-					loop(data, i, processData, done);
-				} else {
-					done();
-				}
-			});
-		};
-		loop(data, 0, processData, done);
-	} else {
-		done();
-	}
-}
+var URL_POST = 'http://yoplanner.com:1337/api/tracking/update';
 
 var fs = require("fs");
 var request = require('request');
@@ -1018,8 +968,11 @@ var loopObjRoutes = function(x, route) {
 						};
 						//console.log(postObj);
 
+						if(index2 == 0) {
+							postObj['first'] = 'true';
+						}
 						
-						request.post({url:'http://yoplanner.com:1337/api/tracking/update', formData: postObj}, function optionalCallback(err, httpResponse, body) {
+						request.post({url: URL_POST, formData: postObj}, function optionalCallback(err, httpResponse, body) {
 							if (err) {
 								return console.error('upload failed:', err);
 							}
@@ -1138,8 +1091,11 @@ var loopArryRoutes = function(x, routeArry) {
 						};
 						//console.log(postObj);
 
+						if(index2 == 0) {
+							postObj['first'] = 'true';
+						}
 						
-						request.post({url:'http://yoplanner.com:1337/api/tracking/update', formData: postObj}, function optionalCallback(err, httpResponse, body) {
+						request.post({url: URL_POST, formData: postObj}, function optionalCallback(err, httpResponse, body) {
 							if (err) {
 								return console.error('upload failed:', err);
 							}
@@ -1173,18 +1129,6 @@ var loopArryRoutes = function(x, routeArry) {
 		}
 	});
 }
-
-/*
-start_location: {
-lat: 20.6560863,
-lng: -103.3769796
-},
-
-end_location: {
-lat: 20.6702168,
-lng: -103.4030583
-},
- */
 
 
 for(var x = 0; x < routes.length; x++) {
