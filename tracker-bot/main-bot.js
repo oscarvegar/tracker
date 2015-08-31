@@ -2,8 +2,8 @@
 
 var API_KEY = "AIzaSyCY3mMw2d_n0myF8BDhnoc6rUMgFdIxOiQ";
 	//API_KEY = 'AIzaSyDcgcRWPdgGdeztRGC37OJlmaKlGW6YOkc';
-var URL_POST = 'http://yoplanner.com:1337/api/tracking/update';
-	//URL_POST = 'http://192.168.0.16:1337/api/tracking/update';
+var //URL_POST = 'http://localhost:1337/api/tracking/update';
+	URL_POST = 'http://yoplanner.com:1337/api/tracking/update';
 
 var fs = require("fs");
 var request = require('request');
@@ -88,16 +88,7 @@ var routes = [
 		}
 	}],
 
-	[{
-		origin: {
-			latitude: 17.163454,
-			longitude: -96.210067
-		},
-		destination: {
-			latitude: 16.2574821,
-			longitude: -92.2546849
-		}
-	}],
+	
 
 	[{
 		origin: {
@@ -175,6 +166,134 @@ var routes = [
 			longitude: -103.4039811
 		}
 	}],
+
+
+	/*
+	 ultimas rutas
+	*/
+
+	//queretaro to queretaro
+		[{
+			origin:{ 
+				latitude:  20.360095, 
+				longitude: -99.966379
+			},
+			destination:{	
+			    latitude:  20.537786, 
+				longitude: -100.714083
+			}
+		}],
+		// queretaro , d.f.
+		[{
+			origin:{
+				latitude:  20.247122, 
+				longitude: -99.839034
+			},
+			destination:{	
+			    latitude:  19.3907336,
+				longitude: -99.1436127
+			}
+			
+		}],
+		// tizayuca pcha
+		[{
+			origin:{
+				latitude:  19.8372198,
+				longitude: -98.9761494
+			},
+			destination:{	
+			    latitude:  20.094605, 
+				longitude: -98.768396
+			}
+			
+		}],
+		//sahagun sn martin
+		[{ 
+			origin:{
+				latitude:  19.740047, 
+				longitude: -98.615505
+			},
+			destination:{	
+			    latitude:  19.289502, 
+				longitude: -98.411444
+			}
+			
+		}],
+		//fresnillos zac
+		[{
+			origin:{
+				latitude:  23.141243, 
+				longitude: -102.816350
+			},
+			destination:{	
+			    latitude:  22.787947, 
+				longitude: -102.626924
+			}
+			
+		}],
+		//zacatecas san luis
+		[{
+			origin:{
+				latitude:  22.751254, 
+				longitude: -102.482207
+			},
+			destination:{	
+			    latitude:  22.206738, 
+				longitude: -101.034102
+			}
+			
+		}],
+		// celaya queretaro
+		[{
+			origin:{
+				latitude:  20.544708, 
+				longitude: -100.740393 
+			},
+			destination:{	
+			    latitude:  20.577246, 
+				longitude: -100.428725
+			}
+			
+		}],
+		//zapopan cd guzman
+		[{
+			origin:{
+				latitude:  20.612590, 
+				longitude: -103.428763
+			},
+			destination:{	
+			    latitude:  19.718466, 
+				longitude: -103.504545
+			}
+			
+		}],
+		// patzcuaro morelia
+		[{
+			origin:{
+				latitude:  19.507842, 
+				longitude: -101.662038
+			},
+			destination:{	
+			    latitude:  19.699305, 
+				longitude: -101.248621
+			}
+			
+		}],
+		// lagos de moreno a san juan de los lagos
+		[{
+			origin:{
+				latitude:  21.334822, 
+				longitude: -102.003235
+			},
+			destination:{	
+			    latitude:  21.255371, 
+				longitude: -102.326346
+			}
+			
+		}],
+    /*  
+     ultimas rutas agregadas
+	*/
 ];
 
 var routesArry = [
