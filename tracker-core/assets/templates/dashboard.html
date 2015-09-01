@@ -1,33 +1,68 @@
 <div>
-
 	<div class="row">
 		<style type="text/css">
 			.angular-google-map-container { height: 75vh; }
 		</style>
 		
 		<ui-gmap-google-map center='map.center' zoom='map.zoom'>
-			<!--ui-gmap-marker coords="ruta1.coords" idkey="ruta1.id" icon="ruta1.icon" 
-				click="onClick()">
-				<ui-gmap-window options="windowOptions" closeClick="closeClick()">
-	                <div style="font-size:10px;height:80px;">
-	                	Conductor: Juanito Perez<br/>
-	                	No. Econ: 2987321 <br/>
-	                	Telefono: 5523988392<br/>
-	                	<button>ver detalle</button><br/>
-	                </div>
-	            </ui-gmap-window>
-	        </ui-gmap-marker-->
 			<ui-gmap-markers models="puntos" coords="'self'" icon="'icon'">
 	        </ui-gmap-markers>
-	        <ui-gmap-markers models="transportistas" coords="'self'" icon="'icon'">
+	        
+	        <ui-gmap-markers models="transportistas" coords="'self'" icon="'icon'"
+	        				 click="onClick">
+	        	<ui-gmap-windows show="show">
+	                <div ng-non-bindable>
+	                	Conductor: {{conductor.nombre}}
+	                </div>
+	            </ui-gmap-windows>
 	        </ui-gmap-markers>
+
             <ui-gmap-markers models="detenidos" coords="'self'" icon="'icon'">
 	        </ui-gmap-markers>
 		</ui-gmap-google-map>
 	</div>
 	<div class="row">
 	<br>
-		<a href="/fullscreen" target="_blank" class="col-md-12 btn btn-primary">Pantalla completa</a>
-
+		<a href="/fullscreen" target="_blank" class="col-md-12 btn btn-primary">
+			Pantalla completa
+		</a>
 	</div>
+	<div id="myModal" class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title">INFORMACIÓN CONDUCTOR</h4>
+				</div>
+				<div class="modal-body">
+					<div class="row">
+					  	<div class="col-xs-6 col-sm-3">Conductor</div>
+					  	<div class="col-xs-6 col-sm-3">{{conductor.nombre}}</div>
+					</div>
+					<div class="row">
+					  	<div class="col-xs-6 col-sm-3">Telefono</div>
+					  	<div class="col-xs-6 col-sm-3">{{conductor.telefono}}</div>
+					</div>
+					<div class="row">
+					  	<div class="col-xs-6 col-sm-3">Placas</div>
+					  	<div class="col-xs-6 col-sm-3">{{conductor.unidad.placa}}</div>
+					</div>
+					<div class="row">
+					  	<div class="col-xs-6 col-sm-3">Punto de Partida</div>
+					  	<div class="col-xs-6 col-sm-3">{{conductor.startLocation}}</div>
+					</div>
+					<div class="row">
+					  	<div class="col-xs-6 col-sm-3">Punto destino</div>
+					  	<div class="col-xs-6 col-sm-3">{{conductor.endLocation}}</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">
+						Cerrar
+					</button>
+					<button type="button" class="btn btn-primary" ng-click="verDetalle()">Ver Detalle</button>
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
 </div>

@@ -38,8 +38,9 @@ module.exports = {
 
 	 update:function(req,res){
 	 	var params = req.allParams();
-	 	Conductor.findOne({idRef:params.id}).then(function(conductor){
+	 	Conductor.findOne({idRef: eval(params.id)}).populate("unidad").then(function(conductor){
 	 		params.conductor = conductor;
+	 		//console.log(  );
 	 		sails.sockets.broadcast("dashboard","updateTracker", {data:params} );
 	  		res.json({code:1})
 	 	})
