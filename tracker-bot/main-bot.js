@@ -573,10 +573,7 @@ var genericRoutesIterator = function(x, routeArry) {
 				console.log('on recursivePolylinePoints');
 				if(index < polylinePoints.length) {
 					var polylinePoint = polylinePoints[index];
-
-					if(x < 15) {
-						timeout = timeout / 2;
-					}
+					
 					setTimeout(function() {
 						var LatLongSplit = (polylinePoint + "").split(',');
 						var postObj = {
@@ -610,11 +607,13 @@ var genericRoutesIterator = function(x, routeArry) {
 				console.log('on recursiveSteps');
 				if(index < steps.length) {
 					var step = steps[index];
-				    var TimeOutStep = Math.ceil(step.distance.value / step.duration.value);
+				    //var TimeOutStep = Math.ceil(step.distance.value / step.duration.value);
 				    //console.log(TimeOutStep);
 
 				    var dat = polyline.decode(step.polyline.points);
 				    var polylinePoints = (dat + "").match(/([-]?)\d{1,3}[.]\d{1,5}[,]([-]?)\d{1,3}[.]\d{1,5}([,]?)/g);
+				    var TimeOutStep = Math.ceil(step.duration.value / polylinePoints.length);
+				    //console.log(TimeOutStep);
 
 				    // recursivePolylinePoints(id, polylinePoints, 0, recursiveSteps, steps, stepIndex);
 				    recursivePolylinePoints(id, polylinePoints, 0, TimeOutStep, function() {
