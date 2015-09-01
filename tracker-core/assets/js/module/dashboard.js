@@ -3,7 +3,8 @@ app.controller( "DashboardCtrl", function($scope, $http, $rootScope, $location, 
   
 	$scope.puntos = [];
 	$scope.transportistas = [];
-	$scope.markerIconSize = new google.maps.Size(20,20);
+	$scope.markerIconSize = new google.maps.Size(30,30);
+	
 	$scope.init = function(){
 	   	console.info("EN INIT...")
 	   	$scope.map = { center: { latitude: 19.432791, longitude: -99.1335314 }, zoom: 6 };
