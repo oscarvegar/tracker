@@ -35,6 +35,26 @@ app.config(function( $stateProvider, $urlRouterProvider, $locationProvider ){
   .state('detalle',{
     url: '/detalle',
     templateUrl: 'templates/detalle.html'
+  })
+  .state('detalle1',{
+    url: '/detalle1',
+    templateUrl: 'templates/detalle1.html'
+  })
+  .state('detalle2',{
+    url: '/detalle2',
+    templateUrl: 'templates/detalle2.html'
+  })
+  .state('detalle3',{
+    url: '/detalle3',
+    templateUrl: 'templates/detalle3.html'
+  })
+  .state('detalle4',{
+    url: '/detalle4',
+    templateUrl: 'templates/detalle4.html'
+  })
+  .state('detalle5',{
+    url: '/detalle5',
+    templateUrl: 'templates/detalle5.html'
   });
 
   $locationProvider.html5Mode({
