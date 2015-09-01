@@ -1,0 +1,713 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/node', '/usr/bin/npm', 'install' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.37
+4 verbose node symlink /usr/bin/node
+5 warn package.json tracker-bot@1.0.0 No description
+6 warn package.json tracker-bot@1.0.0 No repository field.
+7 warn package.json tracker-bot@1.0.0 No README data
+8 verbose readDependencies using package.json deps
+9 verbose install where, deps [ '/home/oscar/Proyectos/elitware/tracker/tracker-bot',
+9 verbose install   [ 'bluebird', 'fs', 'node-rest-client', 'polyline', 'request' ] ]
+10 info preinstall tracker-bot@1.0.0
+11 verbose readDependencies using package.json deps
+12 verbose cache add [ 'fs@0.0.2', null ]
+13 verbose cache add name=undefined spec="fs@0.0.2" args=["fs@0.0.2",null]
+14 verbose parsed url { protocol: null,
+14 verbose parsed url   slashes: null,
+14 verbose parsed url   auth: null,
+14 verbose parsed url   host: null,
+14 verbose parsed url   port: null,
+14 verbose parsed url   hostname: null,
+14 verbose parsed url   hash: null,
+14 verbose parsed url   search: null,
+14 verbose parsed url   query: null,
+14 verbose parsed url   pathname: 'fs@0.0.2',
+14 verbose parsed url   path: 'fs@0.0.2',
+14 verbose parsed url   href: 'fs@0.0.2' }
+15 verbose cache add [ 'node-rest-client@^1.5.1', null ]
+16 verbose cache add name=undefined spec="node-rest-client@^1.5.1" args=["node-rest-client@^1.5.1",null]
+17 verbose parsed url { protocol: null,
+17 verbose parsed url   slashes: null,
+17 verbose parsed url   auth: null,
+17 verbose parsed url   host: null,
+17 verbose parsed url   port: null,
+17 verbose parsed url   hostname: null,
+17 verbose parsed url   hash: null,
+17 verbose parsed url   search: null,
+17 verbose parsed url   query: null,
+17 verbose parsed url   pathname: 'node-rest-client@^1.5.1',
+17 verbose parsed url   path: 'node-rest-client@^1.5.1',
+17 verbose parsed url   href: 'node-rest-client@^1.5.1' }
+18 verbose cache add [ 'polyline@^0.2.0', null ]
+19 verbose cache add name=undefined spec="polyline@^0.2.0" args=["polyline@^0.2.0",null]
+20 verbose parsed url { protocol: null,
+20 verbose parsed url   slashes: null,
+20 verbose parsed url   auth: null,
+20 verbose parsed url   host: null,
+20 verbose parsed url   port: null,
+20 verbose parsed url   hostname: null,
+20 verbose parsed url   hash: null,
+20 verbose parsed url   search: null,
+20 verbose parsed url   query: null,
+20 verbose parsed url   pathname: 'polyline@^0.2.0',
+20 verbose parsed url   path: 'polyline@^0.2.0',
+20 verbose parsed url   href: 'polyline@^0.2.0' }
+21 verbose cache add [ 'request@^2.61.0', null ]
+22 verbose cache add name=undefined spec="request@^2.61.0" args=["request@^2.61.0",null]
+23 verbose parsed url { protocol: null,
+23 verbose parsed url   slashes: null,
+23 verbose parsed url   auth: null,
+23 verbose parsed url   host: null,
+23 verbose parsed url   port: null,
+23 verbose parsed url   hostname: null,
+23 verbose parsed url   hash: null,
+23 verbose parsed url   search: null,
+23 verbose parsed url   query: null,
+23 verbose parsed url   pathname: 'request@^2.61.0',
+23 verbose parsed url   path: 'request@^2.61.0',
+23 verbose parsed url   href: 'request@^2.61.0' }
+24 verbose cache add name="fs" spec="0.0.2" args=["fs","0.0.2"]
+25 verbose parsed url { protocol: null,
+25 verbose parsed url   slashes: null,
+25 verbose parsed url   auth: null,
+25 verbose parsed url   host: null,
+25 verbose parsed url   port: null,
+25 verbose parsed url   hostname: null,
+25 verbose parsed url   hash: null,
+25 verbose parsed url   search: null,
+25 verbose parsed url   query: null,
+25 verbose parsed url   pathname: '0.0.2',
+25 verbose parsed url   path: '0.0.2',
+25 verbose parsed url   href: '0.0.2' }
+26 verbose addNamed [ 'fs', '0.0.2' ]
+27 verbose addNamed [ '0.0.2', '0.0.2' ]
+28 verbose cache add name="node-rest-client" spec="^1.5.1" args=["node-rest-client","^1.5.1"]
+29 verbose parsed url { protocol: null,
+29 verbose parsed url   slashes: null,
+29 verbose parsed url   auth: null,
+29 verbose parsed url   host: null,
+29 verbose parsed url   port: null,
+29 verbose parsed url   hostname: null,
+29 verbose parsed url   hash: null,
+29 verbose parsed url   search: null,
+29 verbose parsed url   query: null,
+29 verbose parsed url   pathname: '^1.5.1',
+29 verbose parsed url   path: '^1.5.1',
+29 verbose parsed url   href: '^1.5.1' }
+30 verbose addNamed [ 'node-rest-client', '^1.5.1' ]
+31 verbose addNamed [ null, '>=1.5.1-0 <2.0.0-0' ]
+32 verbose cache add name="polyline" spec="^0.2.0" args=["polyline","^0.2.0"]
+33 verbose parsed url { protocol: null,
+33 verbose parsed url   slashes: null,
+33 verbose parsed url   auth: null,
+33 verbose parsed url   host: null,
+33 verbose parsed url   port: null,
+33 verbose parsed url   hostname: null,
+33 verbose parsed url   hash: null,
+33 verbose parsed url   search: null,
+33 verbose parsed url   query: null,
+33 verbose parsed url   pathname: '^0.2.0',
+33 verbose parsed url   path: '^0.2.0',
+33 verbose parsed url   href: '^0.2.0' }
+34 verbose addNamed [ 'polyline', '^0.2.0' ]
+35 verbose addNamed [ null, '>=0.2.0-0 <0.3.0-0' ]
+36 verbose cache add name="request" spec="^2.61.0" args=["request","^2.61.0"]
+37 verbose parsed url { protocol: null,
+37 verbose parsed url   slashes: null,
+37 verbose parsed url   auth: null,
+37 verbose parsed url   host: null,
+37 verbose parsed url   port: null,
+37 verbose parsed url   hostname: null,
+37 verbose parsed url   hash: null,
+37 verbose parsed url   search: null,
+37 verbose parsed url   query: null,
+37 verbose parsed url   pathname: '^2.61.0',
+37 verbose parsed url   path: '^2.61.0',
+37 verbose parsed url   href: '^2.61.0' }
+38 verbose addNamed [ 'request', '^2.61.0' ]
+39 verbose addNamed [ null, '>=2.61.0-0 <3.0.0-0' ]
+40 verbose cache add [ 'bluebird@^2.9.34', null ]
+41 verbose cache add name=undefined spec="bluebird@^2.9.34" args=["bluebird@^2.9.34",null]
+42 verbose parsed url { protocol: null,
+42 verbose parsed url   slashes: null,
+42 verbose parsed url   auth: null,
+42 verbose parsed url   host: null,
+42 verbose parsed url   port: null,
+42 verbose parsed url   hostname: null,
+42 verbose parsed url   hash: null,
+42 verbose parsed url   search: null,
+42 verbose parsed url   query: null,
+42 verbose parsed url   pathname: 'bluebird@^2.9.34',
+42 verbose parsed url   path: 'bluebird@^2.9.34',
+42 verbose parsed url   href: 'bluebird@^2.9.34' }
+43 silly lockFile afea0479-fs-0-0-2 fs@0.0.2
+44 verbose lock fs@0.0.2 /home/oscar/.npm/afea0479-fs-0-0-2.lock
+45 silly lockFile dc552426-node-rest-client-1-5-1 node-rest-client@^1.5.1
+46 verbose lock node-rest-client@^1.5.1 /home/oscar/.npm/dc552426-node-rest-client-1-5-1.lock
+47 silly lockFile cd95d664-polyline-0-2-0 polyline@^0.2.0
+48 verbose lock polyline@^0.2.0 /home/oscar/.npm/cd95d664-polyline-0-2-0.lock
+49 silly lockFile e4087416-request-2-61-0 request@^2.61.0
+50 verbose lock request@^2.61.0 /home/oscar/.npm/e4087416-request-2-61-0.lock
+51 verbose cache add name="bluebird" spec="^2.9.34" args=["bluebird","^2.9.34"]
+52 verbose parsed url { protocol: null,
+52 verbose parsed url   slashes: null,
+52 verbose parsed url   auth: null,
+52 verbose parsed url   host: null,
+52 verbose parsed url   port: null,
+52 verbose parsed url   hostname: null,
+52 verbose parsed url   hash: null,
+52 verbose parsed url   search: null,
+52 verbose parsed url   query: null,
+52 verbose parsed url   pathname: '^2.9.34',
+52 verbose parsed url   path: '^2.9.34',
+52 verbose parsed url   href: '^2.9.34' }
+53 verbose addNamed [ 'bluebird', '^2.9.34' ]
+54 verbose addNamed [ null, '>=2.9.34-0 <3.0.0-0' ]
+55 silly lockFile dd334091-bluebird-2-9-34 bluebird@^2.9.34
+56 verbose lock bluebird@^2.9.34 /home/oscar/.npm/dd334091-bluebird-2-9-34.lock
+57 silly addNameRange { name: 'node-rest-client',
+57 silly addNameRange   range: '>=1.5.1-0 <2.0.0-0',
+57 silly addNameRange   hasData: false }
+58 silly addNameRange { name: 'polyline', range: '>=0.2.0-0 <0.3.0-0', hasData: false }
+59 verbose request where is /node-rest-client
+60 verbose request registry https://registry.npmjs.org/
+61 verbose request id e23c2d5fab1b06dc
+62 verbose url raw /node-rest-client
+63 verbose url resolving [ 'https://registry.npmjs.org/', './node-rest-client' ]
+64 verbose url resolved https://registry.npmjs.org/node-rest-client
+65 verbose request where is https://registry.npmjs.org/node-rest-client
+66 info trying registry request attempt 1 at 08:16:40
+67 http GET https://registry.npmjs.org/node-rest-client
+68 silly addNameRange { name: 'request', range: '>=2.61.0-0 <3.0.0-0', hasData: false }
+69 silly addNameRange { name: 'bluebird',
+69 silly addNameRange   range: '>=2.9.34-0 <3.0.0-0',
+69 silly addNameRange   hasData: false }
+70 verbose request where is /polyline
+71 verbose request registry https://registry.npmjs.org/
+72 verbose url raw /polyline
+73 verbose url resolving [ 'https://registry.npmjs.org/', './polyline' ]
+74 verbose url resolved https://registry.npmjs.org/polyline
+75 verbose request where is https://registry.npmjs.org/polyline
+76 info trying registry request attempt 1 at 08:16:40
+77 http GET https://registry.npmjs.org/polyline
+78 verbose request where is /fs
+79 verbose request registry https://registry.npmjs.org/
+80 verbose url raw /fs
+81 verbose url resolving [ 'https://registry.npmjs.org/', './fs' ]
+82 verbose url resolved https://registry.npmjs.org/fs
+83 verbose request where is https://registry.npmjs.org/fs
+84 info trying registry request attempt 1 at 08:16:40
+85 verbose etag "3L31VQWPYJLGLUTV9OUYSCJRB"
+86 http GET https://registry.npmjs.org/fs
+87 verbose request where is /request
+88 verbose request registry https://registry.npmjs.org/
+89 verbose url raw /request
+90 verbose url resolving [ 'https://registry.npmjs.org/', './request' ]
+91 verbose url resolved https://registry.npmjs.org/request
+92 verbose request where is https://registry.npmjs.org/request
+93 info trying registry request attempt 1 at 08:16:40
+94 verbose etag "BRI9NMIJS71R0YZOPHTLCD342"
+95 http GET https://registry.npmjs.org/request
+96 verbose request where is /bluebird
+97 verbose request registry https://registry.npmjs.org/
+98 verbose url raw /bluebird
+99 verbose url resolving [ 'https://registry.npmjs.org/', './bluebird' ]
+100 verbose url resolved https://registry.npmjs.org/bluebird
+101 verbose request where is https://registry.npmjs.org/bluebird
+102 info trying registry request attempt 1 at 08:16:40
+103 verbose etag "5LK8R4I9JXKP0XP3XK1AOKHXA"
+104 http GET https://registry.npmjs.org/bluebird
+105 http 304 https://registry.npmjs.org/request
+106 silly registry.get cb [ 304,
+106 silly registry.get   { date: 'Sun, 30 Aug 2015 13:16:51 GMT',
+106 silly registry.get     via: '1.1 varnish',
+106 silly registry.get     'cache-control': 'max-age=60',
+106 silly registry.get     etag: '"BRI9NMIJS71R0YZOPHTLCD342"',
+106 silly registry.get     age: '17',
+106 silly registry.get     connection: 'keep-alive',
+106 silly registry.get     'x-served-by': 'cache-dfw1830-DFW',
+106 silly registry.get     'x-cache': 'HIT',
+106 silly registry.get     'x-cache-hits': '1',
+106 silly registry.get     'x-timer': 'S1440940611.007259,VS0,VE1',
+106 silly registry.get     vary: 'Accept' } ]
+107 verbose etag https://registry.npmjs.org/request from cache
+108 http 200 https://registry.npmjs.org/fs
+109 silly registry.get cb [ 200,
+109 silly registry.get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+109 silly registry.get     etag: '"369U4SXK8GCRVD0W4EDRYVLGT"',
+109 silly registry.get     'content-type': 'application/json',
+109 silly registry.get     'cache-control': 'max-age=60',
+109 silly registry.get     'content-length': '1611',
+109 silly registry.get     'accept-ranges': 'bytes',
+109 silly registry.get     date: 'Sun, 30 Aug 2015 13:16:51 GMT',
+109 silly registry.get     via: '1.1 varnish',
+109 silly registry.get     age: '0',
+109 silly registry.get     connection: 'keep-alive',
+109 silly registry.get     'x-served-by': 'cache-dfw1834-DFW',
+109 silly registry.get     'x-cache': 'HIT',
+109 silly registry.get     'x-cache-hits': '1',
+109 silly registry.get     'x-timer': 'S1440940611.000063,VS0,VE45',
+109 silly registry.get     vary: 'Accept' } ]
+110 silly addNameRange number 2 { name: 'request', range: '>=2.61.0-0 <3.0.0-0', hasData: true }
+111 silly addNameRange versions [ 'request',
+111 silly addNameRange   [ '0.10.0',
+111 silly addNameRange     '0.8.3',
+111 silly addNameRange     '0.9.0',
+111 silly addNameRange     '0.9.1',
+111 silly addNameRange     '0.9.5',
+111 silly addNameRange     '1.0.0',
+111 silly addNameRange     '1.1.0',
+111 silly addNameRange     '1.1.1',
+111 silly addNameRange     '1.2.0',
+111 silly addNameRange     '1.9.0',
+111 silly addNameRange     '1.9.1',
+111 silly addNameRange     '1.9.2',
+111 silly addNameRange     '1.9.3',
+111 silly addNameRange     '1.9.5',
+111 silly addNameRange     '1.9.7',
+111 silly addNameRange     '1.9.8',
+111 silly addNameRange     '1.9.9',
+111 silly addNameRange     '2.0.0',
+111 silly addNameRange     '2.0.1',
+111 silly addNameRange     '2.0.2',
+111 silly addNameRange     '2.0.3',
+111 silly addNameRange     '2.0.4',
+111 silly addNameRange     '2.0.5',
+111 silly addNameRange     '2.1.0',
+111 silly addNameRange     '2.1.1',
+111 silly addNameRange     '2.2.0',
+111 silly addNameRange     '2.2.5',
+111 silly addNameRange     '2.2.6',
+111 silly addNameRange     '2.2.9',
+111 silly addNameRange     '2.9.0',
+111 silly addNameRange     '2.9.1',
+111 silly addNameRange     '2.9.2',
+111 silly addNameRange     '2.9.3',
+111 silly addNameRange     '2.9.100',
+111 silly addNameRange     '2.9.150',
+111 silly addNameRange     '2.9.151',
+111 silly addNameRange     '2.9.152',
+111 silly addNameRange     '2.9.153',
+111 silly addNameRange     '2.9.200',
+111 silly addNameRange     '2.9.201',
+111 silly addNameRange     '2.9.202',
+111 silly addNameRange     '2.9.203',
+111 silly addNameRange     '2.10.0',
+111 silly addNameRange     '2.11.0',
+111 silly addNameRange     '2.11.1',
+111 silly addNameRange     '2.11.2',
+111 silly addNameRange     '2.11.3',
+111 silly addNameRange     '2.11.4',
+111 silly addNameRange     '2.12.0',
+111 silly addNameRange     '2.14.0',
+111 silly addNameRange     '2.16.0',
+111 silly addNameRange     '2.16.2',
+111 silly addNameRange     '2.16.4',
+111 silly addNameRange     '2.16.6',
+111 silly addNameRange     '2.18.0',
+111 silly addNameRange     '2.19.0',
+111 silly addNameRange     '2.20.0',
+111 silly addNameRange     '2.21.0',
+111 silly addNameRange     '2.22.0',
+111 silly addNameRange     '2.23.0',
+111 silly addNameRange     '2.24.0',
+111 silly addNameRange     '2.25.0',
+111 silly addNameRange     '2.26.0',
+111 silly addNameRange     '2.27.0',
+111 silly addNameRange     '2.28.0',
+111 silly addNameRange     '2.29.0',
+111 silly addNameRange     '2.30.0',
+111 silly addNameRange     '2.31.0',
+111 silly addNameRange     '2.32.0',
+111 silly addNameRange     '2.33.0',
+111 silly addNameRange     '2.34.0',
+111 silly addNameRange     '2.35.0',
+111 silly addNameRange     '2.36.0',
+111 silly addNameRange     '2.37.0',
+111 silly addNameRange     '2.38.0',
+111 silly addNameRange     '2.39.0',
+111 silly addNameRange     '2.40.0',
+111 silly addNameRange     '2.41.0',
+111 silly addNameRange     '2.42.0',
+111 silly addNameRange     '2.43.0',
+111 silly addNameRange     '2.44.0',
+111 silly addNameRange     '2.45.0',
+111 silly addNameRange     '2.46.0',
+111 silly addNameRange     '2.47.0',
+111 silly addNameRange     '2.48.0',
+111 silly addNameRange     '2.49.0',
+111 silly addNameRange     '2.50.0',
+111 silly addNameRange     '2.51.0',
+111 silly addNameRange     '2.52.0',
+111 silly addNameRange     '2.53.0',
+111 silly addNameRange     '2.54.0',
+111 silly addNameRange     '2.55.0',
+111 silly addNameRange     '2.56.0',
+111 silly addNameRange     '2.57.0',
+111 silly addNameRange     '2.58.0',
+111 silly addNameRange     '2.59.0',
+111 silly addNameRange     '2.60.0',
+111 silly addNameRange     '2.61.0' ] ]
+112 verbose addNamed [ 'request', '2.61.0' ]
+113 verbose addNamed [ '2.61.0', '2.61.0' ]
+114 silly lockFile ae0c7aa9-request-2-61-0 request@2.61.0
+115 verbose lock request@2.61.0 /home/oscar/.npm/ae0c7aa9-request-2-61-0.lock
+116 silly lockFile f18d0b15-gistry-npmjs-org-fs-fs-0-0-2-tgz https://registry.npmjs.org/fs/-/fs-0.0.2.tgz
+117 verbose lock https://registry.npmjs.org/fs/-/fs-0.0.2.tgz /home/oscar/.npm/f18d0b15-gistry-npmjs-org-fs-fs-0-0-2-tgz.lock
+118 verbose addRemoteTarball [ 'https://registry.npmjs.org/fs/-/fs-0.0.2.tgz',
+118 verbose addRemoteTarball   'e1f244ef3933c1b2a64bd4799136060d0f5914f8' ]
+119 silly lockFile 79d512aa-s-org-request-request-2-61-0-tgz https://registry.npmjs.org/request/-/request-2.61.0.tgz
+120 verbose lock https://registry.npmjs.org/request/-/request-2.61.0.tgz /home/oscar/.npm/79d512aa-s-org-request-request-2-61-0-tgz.lock
+121 verbose addRemoteTarball [ 'https://registry.npmjs.org/request/-/request-2.61.0.tgz',
+121 verbose addRemoteTarball   '6973cb2ac94885f02693f554eec64481d6013f9f' ]
+122 info retry fetch attempt 1 at 08:16:40
+123 verbose fetch to= /tmp/npm-23953-WgOEIPty/registry.npmjs.org/request/-/request-2.61.0.tgz
+124 info retry fetch attempt 1 at 08:16:40
+125 verbose fetch to= /tmp/npm-23953-WgOEIPty/registry.npmjs.org/fs/-/fs-0.0.2.tgz
+126 http GET https://registry.npmjs.org/request/-/request-2.61.0.tgz
+127 http GET https://registry.npmjs.org/fs/-/fs-0.0.2.tgz
+128 http 200 https://registry.npmjs.org/polyline
+129 silly registry.get cb [ 200,
+129 silly registry.get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+129 silly registry.get     etag: '"CUKDO2VQQ8XQ9DGAWDD2TTIF5"',
+129 silly registry.get     'content-type': 'application/json',
+129 silly registry.get     'cache-control': 'max-age=60',
+129 silly registry.get     'content-length': '8563',
+129 silly registry.get     'accept-ranges': 'bytes',
+129 silly registry.get     date: 'Sun, 30 Aug 2015 13:16:51 GMT',
+129 silly registry.get     via: '1.1 varnish',
+129 silly registry.get     age: '0',
+129 silly registry.get     connection: 'keep-alive',
+129 silly registry.get     'x-served-by': 'cache-dfw1823-DFW',
+129 silly registry.get     'x-cache': 'MISS',
+129 silly registry.get     'x-cache-hits': '0',
+129 silly registry.get     'x-timer': 'S1440940610.998658,VS0,VE70',
+129 silly registry.get     vary: 'Accept' } ]
+130 silly addNameRange number 2 { name: 'polyline', range: '>=0.2.0-0 <0.3.0-0', hasData: true }
+131 silly addNameRange versions [ 'polyline',
+131 silly addNameRange   [ '0.0.0', '0.0.1', '0.0.2', '0.0.3', '0.1.0', '0.2.0' ] ]
+132 verbose addNamed [ 'polyline', '0.2.0' ]
+133 verbose addNamed [ '0.2.0', '0.2.0' ]
+134 silly lockFile b7c4d653-polyline-0-2-0 polyline@0.2.0
+135 verbose lock polyline@0.2.0 /home/oscar/.npm/b7c4d653-polyline-0-2-0.lock
+136 silly lockFile 48778112--org-polyline-polyline-0-2-0-tgz https://registry.npmjs.org/polyline/-/polyline-0.2.0.tgz
+137 verbose lock https://registry.npmjs.org/polyline/-/polyline-0.2.0.tgz /home/oscar/.npm/48778112--org-polyline-polyline-0-2-0-tgz.lock
+138 verbose addRemoteTarball [ 'https://registry.npmjs.org/polyline/-/polyline-0.2.0.tgz',
+138 verbose addRemoteTarball   '4f2b716ca81134a6cbaa488975d236ecb1cc2840' ]
+139 info retry fetch attempt 1 at 08:16:40
+140 verbose fetch to= /tmp/npm-23953-WgOEIPty/registry.npmjs.org/polyline/-/polyline-0.2.0.tgz
+141 http GET https://registry.npmjs.org/polyline/-/polyline-0.2.0.tgz
+142 http 200 https://registry.npmjs.org/node-rest-client
+143 silly registry.get cb [ 200,
+143 silly registry.get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+143 silly registry.get     etag: '"3PB97IP6OQ9O3A25196AO46WI"',
+143 silly registry.get     'content-type': 'application/json',
+143 silly registry.get     'cache-control': 'max-age=60',
+143 silly registry.get     'content-length': '41805',
+143 silly registry.get     'accept-ranges': 'bytes',
+143 silly registry.get     date: 'Sun, 30 Aug 2015 13:16:51 GMT',
+143 silly registry.get     via: '1.1 varnish',
+143 silly registry.get     age: '0',
+143 silly registry.get     connection: 'keep-alive',
+143 silly registry.get     'x-served-by': 'cache-dfw1820-DFW',
+143 silly registry.get     'x-cache': 'MISS',
+143 silly registry.get     'x-cache-hits': '0',
+143 silly registry.get     'x-timer': 'S1440940611.007367,VS0,VE45',
+143 silly registry.get     vary: 'Accept' } ]
+144 silly addNameRange number 2 { name: 'node-rest-client',
+144 silly addNameRange   range: '>=1.5.1-0 <2.0.0-0',
+144 silly addNameRange   hasData: true }
+145 silly addNameRange versions [ 'node-rest-client',
+145 silly addNameRange   [ '0.0.1',
+145 silly addNameRange     '0.0.2',
+145 silly addNameRange     '0.0.3',
+145 silly addNameRange     '0.0.4',
+145 silly addNameRange     '0.1.0',
+145 silly addNameRange     '0.1.1',
+145 silly addNameRange     '0.5.0',
+145 silly addNameRange     '0.7.0',
+145 silly addNameRange     '0.7.1',
+145 silly addNameRange     '0.7.5',
+145 silly addNameRange     '0.7.7',
+145 silly addNameRange     '0.7.9',
+145 silly addNameRange     '0.7.10-s',
+145 silly addNameRange     '0.7.12',
+145 silly addNameRange     '0.8.0',
+145 silly addNameRange     '0.8.2',
+145 silly addNameRange     '0.8.1',
+145 silly addNameRange     '0.8.3',
+145 silly addNameRange     '0.8.4',
+145 silly addNameRange     '0.8.6',
+145 silly addNameRange     '0.8.8',
+145 silly addNameRange     '0.8.9',
+145 silly addNameRange     '0.8.10',
+145 silly addNameRange     '1.0.0',
+145 silly addNameRange     '1.0.3',
+145 silly addNameRange     '1.4.0',
+145 silly addNameRange     '1.4.1',
+145 silly addNameRange     '1.4.3',
+145 silly addNameRange     '1.4.4',
+145 silly addNameRange     '1.4.8',
+145 silly addNameRange     '1.5.0',
+145 silly addNameRange     '1.5.1' ] ]
+146 verbose addNamed [ 'node-rest-client', '1.5.1' ]
+147 verbose addNamed [ '1.5.1', '1.5.1' ]
+148 silly lockFile 3eaaa8b4-node-rest-client-1-5-1 node-rest-client@1.5.1
+149 verbose lock node-rest-client@1.5.1 /home/oscar/.npm/3eaaa8b4-node-rest-client-1-5-1.lock
+150 silly lockFile 0448bb60-lient-node-rest-client-1-5-1-tgz https://registry.npmjs.org/node-rest-client/-/node-rest-client-1.5.1.tgz
+151 verbose lock https://registry.npmjs.org/node-rest-client/-/node-rest-client-1.5.1.tgz /home/oscar/.npm/0448bb60-lient-node-rest-client-1-5-1-tgz.lock
+152 verbose addRemoteTarball [ 'https://registry.npmjs.org/node-rest-client/-/node-rest-client-1.5.1.tgz',
+152 verbose addRemoteTarball   'e364ed023f726df194395f7ec2902dbb854fa522' ]
+153 info retry fetch attempt 1 at 08:16:40
+154 verbose fetch to= /tmp/npm-23953-WgOEIPty/registry.npmjs.org/node-rest-client/-/node-rest-client-1.5.1.tgz
+155 http GET https://registry.npmjs.org/node-rest-client/-/node-rest-client-1.5.1.tgz
+156 http 200 https://registry.npmjs.org/fs/-/fs-0.0.2.tgz
+157 http 200 https://registry.npmjs.org/request/-/request-2.61.0.tgz
+158 silly lockFile f18d0b15-gistry-npmjs-org-fs-fs-0-0-2-tgz https://registry.npmjs.org/fs/-/fs-0.0.2.tgz
+159 silly lockFile f18d0b15-gistry-npmjs-org-fs-fs-0-0-2-tgz https://registry.npmjs.org/fs/-/fs-0.0.2.tgz
+160 silly lockFile afea0479-fs-0-0-2 fs@0.0.2
+161 silly lockFile afea0479-fs-0-0-2 fs@0.0.2
+162 silly lockFile 79d512aa-s-org-request-request-2-61-0-tgz https://registry.npmjs.org/request/-/request-2.61.0.tgz
+163 silly lockFile 79d512aa-s-org-request-request-2-61-0-tgz https://registry.npmjs.org/request/-/request-2.61.0.tgz
+164 silly lockFile ae0c7aa9-request-2-61-0 request@2.61.0
+165 silly lockFile ae0c7aa9-request-2-61-0 request@2.61.0
+166 silly lockFile e4087416-request-2-61-0 request@^2.61.0
+167 silly lockFile e4087416-request-2-61-0 request@^2.61.0
+168 http 200 https://registry.npmjs.org/bluebird
+169 silly registry.get cb [ 200,
+169 silly registry.get   { server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+169 silly registry.get     etag: '"37T1G8BTAYU71BD8NTED39HZL"',
+169 silly registry.get     'content-type': 'application/json',
+169 silly registry.get     'cache-control': 'max-age=60',
+169 silly registry.get     'content-length': '337135',
+169 silly registry.get     'accept-ranges': 'bytes',
+169 silly registry.get     date: 'Sun, 30 Aug 2015 13:16:51 GMT',
+169 silly registry.get     via: '1.1 varnish',
+169 silly registry.get     age: '45',
+169 silly registry.get     connection: 'keep-alive',
+169 silly registry.get     'x-served-by': 'cache-dfw1832-DFW',
+169 silly registry.get     'x-cache': 'HIT',
+169 silly registry.get     'x-cache-hits': '1',
+169 silly registry.get     'x-timer': 'S1440940611.022510,VS0,VE1',
+169 silly registry.get     vary: 'Accept' } ]
+170 silly addNameRange number 2 { name: 'bluebird', range: '>=2.9.34-0 <3.0.0-0', hasData: true }
+171 silly addNameRange versions [ 'bluebird',
+171 silly addNameRange   [ '0.7.1-1',
+171 silly addNameRange     '0.7.1-2',
+171 silly addNameRange     '0.7.1-3',
+171 silly addNameRange     '0.7.1-4',
+171 silly addNameRange     '0.7.1-5',
+171 silly addNameRange     '0.7.2-0',
+171 silly addNameRange     '0.7.3-0',
+171 silly addNameRange     '0.7.4-0',
+171 silly addNameRange     '0.7.4-1',
+171 silly addNameRange     '0.7.5-0',
+171 silly addNameRange     '0.7.6-0',
+171 silly addNameRange     '0.7.7-0',
+171 silly addNameRange     '0.7.7-1',
+171 silly addNameRange     '0.7.8-0',
+171 silly addNameRange     '0.7.8-1',
+171 silly addNameRange     '0.7.9-0',
+171 silly addNameRange     '0.7.9-1',
+171 silly addNameRange     '0.7.10-0',
+171 silly addNameRange     '0.7.10-1',
+171 silly addNameRange     '0.7.11-0',
+171 silly addNameRange     '0.7.12-0',
+171 silly addNameRange     '0.7.12-1',
+171 silly addNameRange     '0.7.12-2',
+171 silly addNameRange     '0.8.0-0',
+171 silly addNameRange     '0.8.0-1',
+171 silly addNameRange     '0.8.0-2',
+171 silly addNameRange     '0.8.0-3',
+171 silly addNameRange     '0.8.1-0',
+171 silly addNameRange     '0.8.2-0',
+171 silly addNameRange     '0.8.2-1',
+171 silly addNameRange     '0.8.2-2',
+171 silly addNameRange     '0.8.3-0',
+171 silly addNameRange     '0.8.3-1',
+171 silly addNameRange     '0.8.3-2',
+171 silly addNameRange     '0.8.3-3',
+171 silly addNameRange     '0.8.4-0',
+171 silly addNameRange     '0.8.4-1',
+171 silly addNameRange     '0.8.5-0',
+171 silly addNameRange     '0.8.5-1',
+171 silly addNameRange     '0.9.0-0',
+171 silly addNameRange     '0.9.1-0',
+171 silly addNameRange     '0.9.1-1',
+171 silly addNameRange     '0.9.2-0',
+171 silly addNameRange     '0.9.2-1',
+171 silly addNameRange     '0.9.3-0',
+171 silly addNameRange     '0.9.4-0',
+171 silly addNameRange     '0.9.4-1',
+171 silly addNameRange     '0.9.5-0',
+171 silly addNameRange     '0.9.6-0',
+171 silly addNameRange     '0.9.7-0',
+171 silly addNameRange     '0.9.8-0',
+171 silly addNameRange     '0.9.9-0',
+171 silly addNameRange     '0.9.10-0',
+171 silly addNameRange     '0.9.10-1',
+171 silly addNameRange     '0.9.11-0',
+171 silly addNameRange     '0.9.11-1',
+171 silly addNameRange     '0.10.0-0',
+171 silly addNameRange     '0.10.0-1',
+171 silly addNameRange     '0.10.1-0',
+171 silly addNameRange     '0.10.2-0',
+171 silly addNameRange     '0.10.2-1',
+171 silly addNameRange     '0.10.3-0',
+171 silly addNameRange     '0.10.4-0',
+171 silly addNameRange     '0.10.4-1',
+171 silly addNameRange     '0.10.5-0',
+171 silly addNameRange     '0.10.6-0',
+171 silly addNameRange     '0.10.7-0',
+171 silly addNameRange     '0.10.8-0',
+171 silly addNameRange     '0.10.9-0',
+171 silly addNameRange     '0.10.9-1',
+171 silly addNameRange     '0.10.10-0',
+171 silly addNameRange     '0.10.11-0',
+171 silly addNameRange     '0.10.11-1',
+171 silly addNameRange     '0.10.11-2',
+171 silly addNameRange     '0.10.11-4',
+171 silly addNameRange     '0.10.12-0',
+171 silly addNameRange     '0.10.13-0',
+171 silly addNameRange     '0.10.13-1',
+171 silly addNameRange     '0.10.14-0',
+171 silly addNameRange     '0.11.0-0',
+171 silly addNameRange     '0.11.1-0',
+171 silly addNameRange     '0.11.2-0',
+171 silly addNameRange     '0.11.3-0',
+171 silly addNameRange     '0.11.4-0',
+171 silly addNameRange     '0.11.4-1',
+171 silly addNameRange     '0.11.5-0',
+171 silly addNameRange     '0.11.5-1',
+171 silly addNameRange     '0.11.6-0',
+171 silly addNameRange     '1.0.0',
+171 silly addNameRange     '1.0.1',
+171 silly addNameRange     '1.0.2',
+171 silly addNameRange     '1.0.3',
+171 silly addNameRange     '1.0.4',
+171 silly addNameRange     '1.0.5',
+171 silly addNameRange     '1.0.7',
+171 silly addNameRange     '1.0.8',
+171 silly addNameRange     '1.1.0',
+171 silly addNameRange     '1.1.1',
+171 silly addNameRange     '1.2.0',
+171 silly addNameRange     '1.2.1',
+171 silly addNameRange     '1.2.2',
+171 silly addNameRange     '1.2.3',
+171 silly addNameRange     '1.2.4',
+171 silly addNameRange     '2.0.2',
+171 silly addNameRange     '2.0.3',
+171 silly addNameRange     '2.0.4',
+171 silly addNameRange     '2.0.5',
+171 silly addNameRange     '2.0.6',
+171 silly addNameRange     '2.0.7',
+171 silly addNameRange     '2.1.1',
+171 silly addNameRange     '2.1.2',
+171 silly addNameRange     '2.1.3',
+171 silly addNameRange     '2.2.0',
+171 silly addNameRange     '2.2.1',
+171 silly addNameRange     '2.2.2',
+171 silly addNameRange     '2.3.0',
+171 silly addNameRange     '2.3.1',
+171 silly addNameRange     '2.3.2',
+171 silly addNameRange     '2.3.3',
+171 silly addNameRange     '2.3.4',
+171 silly addNameRange     '2.3.5',
+171 silly addNameRange     '0.11.6',
+171 silly addNameRange     '2.3.6',
+171 silly addNameRange     '2.3.9',
+171 silly addNameRange     '2.3.10',
+171 silly addNameRange     '2.3.11',
+171 silly addNameRange     '2.4.0',
+171 silly addNameRange     '2.4.1',
+171 silly addNameRange     '2.4.2',
+171 silly addNameRange     '2.4.3',
+171 silly addNameRange     '2.5.0',
+171 silly addNameRange     '2.5.1',
+171 silly addNameRange     '2.5.2',
+171 silly addNameRange     '2.5.3',
+171 silly addNameRange     '2.6.0',
+171 silly addNameRange     '2.6.1',
+171 silly addNameRange     '2.6.2',
+171 silly addNameRange     '2.6.3',
+171 silly addNameRange     '2.6.4',
+171 silly addNameRange     '2.7.0',
+171 silly addNameRange     '2.7.1',
+171 silly addNameRange     '2.8.0',
+171 silly addNameRange     '2.8.1',
+171 silly addNameRange     '2.8.2',
+171 silly addNameRange     '2.9.0',
+171 silly addNameRange     '2.9.1',
+171 silly addNameRange     '2.9.2',
+171 silly addNameRange     '2.9.3',
+171 silly addNameRange     '2.9.4',
+171 silly addNameRange     '2.9.5',
+171 silly addNameRange     '2.9.6',
+171 silly addNameRange     '2.9.7',
+171 silly addNameRange     '2.9.8',
+171 silly addNameRange     '2.9.9',
+171 silly addNameRange     '2.9.10',
+171 silly addNameRange     '2.9.11',
+171 silly addNameRange     '2.9.12',
+171 silly addNameRange     '2.9.13',
+171 silly addNameRange     '2.9.14',
+171 silly addNameRange     '2.9.15',
+171 silly addNameRange     '2.9.16',
+171 silly addNameRange     '2.9.17',
+171 silly addNameRange     '2.9.18',
+171 silly addNameRange     '2.9.19',
+171 silly addNameRange     '2.9.20',
+171 silly addNameRange     '2.9.21',
+171 silly addNameRange     '2.9.22',
+171 silly addNameRange     '2.9.23',
+171 silly addNameRange     '2.9.24',
+171 silly addNameRange     '2.9.25',
+171 silly addNameRange     '2.9.26',
+171 silly addNameRange     '2.9.27',
+171 silly addNameRange     '2.9.28',
+171 silly addNameRange     '2.9.29',
+171 silly addNameRange     '2.9.30',
+171 silly addNameRange     '2.9.31',
+171 silly addNameRange     '2.9.32',
+171 silly addNameRange     '2.9.33',
+171 silly addNameRange     '2.9.34' ] ]
+172 verbose addNamed [ 'bluebird', '2.9.34' ]
+173 verbose addNamed [ '2.9.34', '2.9.34' ]
+174 silly lockFile 0bcebb1b-bluebird-2-9-34 bluebird@2.9.34
+175 verbose lock bluebird@2.9.34 /home/oscar/.npm/0bcebb1b-bluebird-2-9-34.lock
+176 silly lockFile 0bcebb1b-bluebird-2-9-34 bluebird@2.9.34
+177 silly lockFile 0bcebb1b-bluebird-2-9-34 bluebird@2.9.34
+178 silly lockFile dd334091-bluebird-2-9-34 bluebird@^2.9.34
+179 silly lockFile dd334091-bluebird-2-9-34 bluebird@^2.9.34
+180 http 200 https://registry.npmjs.org/polyline/-/polyline-0.2.0.tgz
+181 silly lockFile 48778112--org-polyline-polyline-0-2-0-tgz https://registry.npmjs.org/polyline/-/polyline-0.2.0.tgz
+182 silly lockFile 48778112--org-polyline-polyline-0-2-0-tgz https://registry.npmjs.org/polyline/-/polyline-0.2.0.tgz
+183 silly lockFile b7c4d653-polyline-0-2-0 polyline@0.2.0
+184 silly lockFile b7c4d653-polyline-0-2-0 polyline@0.2.0
+185 silly lockFile cd95d664-polyline-0-2-0 polyline@^0.2.0
+186 silly lockFile cd95d664-polyline-0-2-0 polyline@^0.2.0
+187 http 200 https://registry.npmjs.org/node-rest-client/-/node-rest-client-1.5.1.tgz
+188 silly lockFile 0448bb60-lient-node-rest-client-1-5-1-tgz https://registry.npmjs.org/node-rest-client/-/node-rest-client-1.5.1.tgz
+189 silly lockFile 0448bb60-lient-node-rest-client-1-5-1-tgz https://registry.npmjs.org/node-rest-client/-/node-rest-client-1.5.1.tgz
+190 silly lockFile 3eaaa8b4-node-rest-client-1-5-1 node-rest-client@1.5.1
+191 silly lockFile 3eaaa8b4-node-rest-client-1-5-1 node-rest-client@1.5.1
+192 silly lockFile dc552426-node-rest-client-1-5-1 node-rest-client@^1.5.1
+193 silly lockFile dc552426-node-rest-client-1-5-1 node-rest-client@^1.5.1
+194 error Error: EACCES, mkdir '/home/oscar/.npm/request/2.61.0'
+194 error  { [Error: EACCES, mkdir '/home/oscar/.npm/request/2.61.0']
+194 error   errno: 3,
+194 error   code: 'EACCES',
+194 error   path: '/home/oscar/.npm/request/2.61.0',
+194 error   parent: 'tracker-bot' }
+195 error Please try running this command again as root/Administrator.
+196 error System Linux 3.13.0-48-generic
+197 error command "/usr/bin/node" "/usr/bin/npm" "install"
+198 error cwd /home/oscar/Proyectos/elitware/tracker/tracker-bot
+199 error node -v v0.10.37
+200 error npm -v 1.4.28
+201 error path /home/oscar/.npm/request/2.61.0
+202 error code EACCES
+203 error errno 3
+204 error stack Error: EACCES, mkdir '/home/oscar/.npm/request/2.61.0'
+205 verbose exit [ 3, true ]

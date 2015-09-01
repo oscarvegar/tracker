@@ -11,7 +11,9 @@ module.exports = {
   	
   	unidad:{
   		model:'unidad'
-  	}
+  	},
+
+  	idRef: 'int'
 
   }
 };
