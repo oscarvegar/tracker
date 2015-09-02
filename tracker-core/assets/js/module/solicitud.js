@@ -29,6 +29,12 @@ app.controller( "SolicitudCtrl", function($scope, $http, $rootScope, $location) 
             itemActual.Cantidad++;
         }
     }
+
+
+     $scope.open = function(){
+            $('#miSolicitud').modal('show')
+            $scope.$apply();
+    };
     
 
     $scope.productos = [{"Id": "1",  "Producto": "Cemento Apasco Toneladas",  "Imagen": "http://materialeslavena.com/ventas/images/SACO%20APASCO.JPG"},
