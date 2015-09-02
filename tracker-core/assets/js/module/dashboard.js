@@ -1,5 +1,5 @@
 var app = angular.module( "track-dashboard", ['ui.router', 'uiGmapgoogle-maps'] );
-app.controller( "DashboardCtrl", function($scope, $http, $rootScope, $location, $timeout) {
+app.controller( "DashboardCtrl", function($scope, $http, $rootScope, $location, $timeout, $state) {
   
 	$scope.puntos = [];
 	$scope.transportistas = [];
@@ -15,7 +15,7 @@ app.controller( "DashboardCtrl", function($scope, $http, $rootScope, $location, 
 		  		var icon = $scope.puntos[p].icon;
 		  		$scope.puntos[p].icon = {};
 		  		$scope.puntos[p].icon.url = icon;
-		  		$scope.puntos[p].icon.scaledSize = $scope.markerIconSize;	
+		  		$scope.puntos[p].icon.scaledSize = $scope.markerIconSize;
 		  	}
 	   	}); 
         $http.get('/api/tracking/stopped').then(function(res) {
@@ -53,13 +53,13 @@ app.controller( "DashboardCtrl", function($scope, $http, $rootScope, $location, 
   		$scope.transportistas[obj.data.id].conductor = obj.data.conductor;
   		$scope.transportistas[obj.data.id].onClick = function( marker ){
   			console.log("Clicked ", marker.model);
-            marker.model.show = !marker.model.show;
+            //marker.model.show = !marker.model.show;
             $scope.conductor = marker.model.conductor;
             $('#myModal').modal('show')
             $scope.$apply();
   		}
   		$scope.transportistas[obj.data.id].show = false;
-  		console.log("transportistas_: ", $scope.transportistas );
+  		//console.log("transportistas_: ", $scope.transportistas );
 		$scope.$apply();
 	});
 
@@ -69,7 +69,7 @@ app.controller( "DashboardCtrl", function($scope, $http, $rootScope, $location, 
     	console.log("on click marker model :: ", marker.model);
     	//marker.model.onClick();
 		//$scope.$apply();
-        //$scope.windowOptions.visible = ;
+        //$scope.windowOptions.visible = ;r
          //$scope.selectedMarker = marker.model;
          //marker.model.show = true;
     };
@@ -78,15 +78,24 @@ app.controller( "DashboardCtrl", function($scope, $http, $rootScope, $location, 
         $scope.windowOptions.visible = false;
     };
 
-    $scope.count = 0;
+    
+    
     $scope.verDetalle = function(){
-    	if($scope.count === 6 ) $scope.count = 0;
-    	if( $scope.count === 0 ){
-    		$location.href="/detalle";
-    	}else{
-    		$location.href="/detalle" + $scope.count;
-    	}
-    	$scope.count++;
+    	console.log("Ir a detalle");
+    	$('#myModal').modal('hide')
+    	$timeout(function(){
+    		if( $rootScope.count === 6 ) $rootScope.count = 0;
+	    	if( $rootScope.count === 0 ){
+	    		$state.go("detalle", true);
+	    		//window.location.href="/detalle";
+	    		//$state.go( "detalle" );
+	    	}else{
+	    		//window.location.href="/detalle" + $scope.count;
+	    		$state.go("detalle" + $rootScope.count, true);
+	    	}
+	    	$rootScope.count++;
+    	},400,false)
+    	
     };
 
   	$scope.init();

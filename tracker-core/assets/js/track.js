@@ -6,6 +6,7 @@ var app = angular.module( "TrackApp", ['ui.router','ui.bootstrap','LoginApp','tr
 app.controller("TrackController", function($scope, $http, $rootScope, $location) {
   $rootScope.tituloPagina = "Live Dashboard";
   $rootScope.iconoPagina = "icon-rss-sign";
+  $rootScope.count = 0;
 });
 
 
