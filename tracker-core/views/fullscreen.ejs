@@ -35,26 +35,102 @@
 
   <div class="row">
     <style type="text/css">
-      .angular-google-map-container { height: 95vh; }
+      .angular-google-map-container { height: 100vh; }
     </style>
+    <div>
+  <div class="row">
     
     <ui-gmap-google-map center='map.center' zoom='map.zoom'>
-      <!--ui-gmap-marker coords="ruta1.coords" idkey="ruta1.id" icon="ruta1.icon" 
-        click="onClick()">
-        <ui-gmap-window options="windowOptions" closeClick="closeClick()">
-                  <div style="font-size:10px;height:80px;">
-                    Conductor: Juanito Perez<br/>
-                    No. Econ: 2987321 <br/>
-                    Telefono: 5523988392<br/>
-                    <button>ver detalle</button><br/>
-                  </div>
-              </ui-gmap-window>
-          </ui-gmap-marker-->
-      <ui-gmap-markers models="puntos" coords="'self'" icon="'icon'">
+      
+      <ui-gmap-markers models="puntos" coords="'self'" icon="'icon'" click="mostrarDatos">
+          
           </ui-gmap-markers>
-          <ui-gmap-markers models="transportistas" coords="'self'" icon="'icon'">
+          
+          <ui-gmap-markers models="transportistas" coords="'self'" icon="'icon'" 
+            click="onClick">
+          </ui-gmap-markers>
+
+            <ui-gmap-markers models="detenidos" coords="'self'" icon="'icon'">
           </ui-gmap-markers>
     </ui-gmap-google-map>
+  </div>
+  
+  <div id="myModal" class="modal fade">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">INFORMACIÓN CONDUCTOR</h4>
+        </div>
+        <div class="modal-body">
+          <div class="row">
+              <div class="col-xs-6 col-sm-3">Conductor</div>
+              <div class="col-xs-6 col-sm-3">{{conductor.nombre}}</div>
+          </div>
+          <div class="row">
+              <div class="col-xs-6 col-sm-3">Telefono</div>
+              <div class="col-xs-6 col-sm-3">{{conductor.telefono}}</div>
+          </div>
+          <div class="row">
+              <div class="col-xs-6 col-sm-3">Placas</div>
+              <div class="col-xs-6 col-sm-3">{{conductor.unidad.placa}}</div>
+          </div>
+          <div class="row">
+              <div class="col-xs-6 col-sm-3">Punto de Partida</div>
+              <div class="col-xs-6 col-sm-3">{{conductor.startLocation}}</div>
+          </div>
+          <div class="row">
+              <div class="col-xs-6 col-sm-3">Punto destino</div>
+              <div class="col-xs-6 col-sm-3">{{conductor.endLocation}}</div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">
+            Cerrar
+          </button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="verDetalle()">Ver Detalle</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+
+
+  <div id="modalPuntos" class="modal fade">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">INFORMACIÓN DE
+          <span ng-show="puntoData.icon.url==='office-building.png'"> CEDIS </span>
+          <span ng-show="puntoData.icon.url==='parkinggarage.png'"> TERMINALES </span>
+          <span ng-show="puntoData.icon.url==='construction.png'"> OBRAS </span>
+          </h4>
+        </div>
+        <div class="modal-body">
+          <span ng-show="puntoData.icon.url==='construction.png'" style="width:100%">
+            <div class="row" align="center" style="width:100%">
+                <h3>OBRA NO. {{puntoData.no}} </h3>
+            </div>          
+          </span>
+          <div class="row" align="center">
+              <h3><div style="width:100%">{{puntoData.title}}</div></h3>
+          </div>
+          <div class="row" align="center">
+              <h4><div>{{puntoData.direccion}}</div></h4>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">
+            Cerrar
+          </button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+
+</div>
+
+ 
   </div>
 </div>
     <!-- Librerias -->

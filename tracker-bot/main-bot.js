@@ -2,8 +2,8 @@
 
 var API_KEY = "AIzaSyCY3mMw2d_n0myF8BDhnoc6rUMgFdIxOiQ";
 	//API_KEY = 'AIzaSyDcgcRWPdgGdeztRGC37OJlmaKlGW6YOkc';
-var //URL_POST = 'http://localhost:1337/api/tracking/update';
-	URL_POST = 'http://yoplanner.com:1337/api/tracking/update';
+var URL_POST = 'http://localhost:1337/api/tracking/update';
+//	URL_POST = 'http://yoplanner.com:1337/api/tracking/update';
 
 var fs = require("fs");
 var request = require('request');
