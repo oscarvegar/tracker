@@ -8,6 +8,7 @@ app.controller( "DashboardCtrl", function($scope, $http, $rootScope, $location, 
 	$scope.init = function(){
 	   	console.info("EN INIT...")
 	   	$scope.map = { center: { latitude: 19.432791, longitude: -99.1335314 }, zoom: 6 };
+	   	
 	   	io.socket.get('/api/tracking/subscribe',function(res){
 		  	console.info("res:::::  ", res)
 		  	$scope.puntos = res.puntos;
@@ -16,8 +17,16 @@ app.controller( "DashboardCtrl", function($scope, $http, $rootScope, $location, 
 		  		$scope.puntos[p].icon = {};
 		  		$scope.puntos[p].icon.url = icon;
 		  		$scope.puntos[p].icon.scaledSize = $scope.markerIconSize;
+		  		$scope.puntos[p].mostrarDatos=function( marker ){
+		  			console.log("Clicked en puntos", marker.model);
+		            $scope.puntoData = marker.model;
+		            console.log("data:: ", $scope.puntoData);
+		            $('#modalPuntos').modal('show')
+		            $scope.$apply();
+		  		}
 		  	}
 	   	}); 
+        
         $http.get('/api/tracking/stopped').then(function(res) {
             console.log("Se detecta una unidad detenida" , angular.toJson(res.data.puntos));
             $scope.detenidos = res.data.puntos;
@@ -67,6 +76,15 @@ app.controller( "DashboardCtrl", function($scope, $http, $rootScope, $location, 
 
     $scope.onClick = function( marker ) {
     	console.log("on click marker model :: ", marker.model);
+    	//marker.model.onClick();
+		//$scope.$apply();
+        //$scope.windowOptions.visible = ;r
+         //$scope.selectedMarker = marker.model;
+         //marker.model.show = true;
+    };
+
+    $scope.mostrarDatos = function( marker ) {
+    	console.log("on click en puntos :: marker model :: ", marker.model);
     	//marker.model.onClick();
 		//$scope.$apply();
         //$scope.windowOptions.visible = ;r

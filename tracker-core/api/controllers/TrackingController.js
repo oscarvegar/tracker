@@ -15,6 +15,7 @@ module.exports = {
 	  	var promesas = [];
 	  	promesas.push( Cedis.find() );
 	  	promesas.push( Estacionamiento.find() );
+	  	promesas.push( Obra.find() );
 
 	  	Q.all(promesas).allSettled(promesas).then(function(result){
 			//console.log("Se ejecutaron los queris: ", result);
