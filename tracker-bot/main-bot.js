@@ -2,8 +2,8 @@
 
 var API_KEY = "AIzaSyCY3mMw2d_n0myF8BDhnoc6rUMgFdIxOiQ";
 	//API_KEY = 'AIzaSyDcgcRWPdgGdeztRGC37OJlmaKlGW6YOkc';
-var URL_POST = 'http://localhost:1337/api/tracking/update';
-//	URL_POST = 'http://yoplanner.com:1337/api/tracking/update';
+var //URL_POST = 'http://localhost:1337/api/tracking/update';
+	URL_POST = 'http://yoplanner.com:1337/api/tracking/update';
 
 var fs = require("fs");
 var request = require('request');
@@ -123,7 +123,7 @@ var routes = [
 		}
 	}],
 
-	[{
+	/*[{
 		origin: {
 			latitude: 25.5486137,
 			longitude: -103.4019159
@@ -132,7 +132,7 @@ var routes = [
 			latitude: 23.2467895,
 			longitude: -106.4221601
 		}
-	}],
+	}],*/
 
 	[{
 		origin: {
@@ -171,6 +171,150 @@ var routes = [
 	/*
 	 ultimas rutas
 	*/
+
+	//novoja  yaqui 
+	[{
+		origin: {
+				latitude:  27.113238,
+				longitude: -109.453543
+		},
+		destination: {
+				latitude: 27.382606, 
+				longitude: -110.116954
+		}
+	}],	 
+
+	//chihuahua saucillo
+	[{
+		origin: {
+				latitude:  28.586098,
+				longitude: -105.963008 
+		},
+		destination: {
+				latitude:28.005490,
+				longitude: -105.312304
+	    }
+	}],	
+	   
+	//tampico to villa cacalilao
+	[{
+			origin: {
+				latitude: 22.226788, 
+				longitude: -97.870670 
+			},
+			destination: {
+				latitude:22.154626,
+				longitude: -98.169705
+	        }
+	}],   
+	   
+	//tuxpan la loma
+	[{
+			origin: {
+				latitude: 20.941241,
+				longitude: -97.409410 
+		    },
+			destination: {
+				latitude:20.736891, 
+				longitude: -97.483598
+			}
+	}],	
+			
+	//tabasco
+	[{
+			origin: {
+				latitude: 18.000386,
+				longitude: -92.899356 
+			},
+			destination: {
+				latitude:17.737313, 
+				longitude: -92.625807
+			}	
+	}],	
+	   
+	//tabasco
+	[{
+			origin: {
+				latitude: 17.978201,
+				longitude: -92.819621 
+			},
+			destination: {
+				latitude: 17.757832, 
+				longitude: -92.601427
+		    }
+	}],	
+
+	//tabasco
+	[{
+			origin: {
+				latitude: 17.987806, 
+				longitude: -92.964383 
+			},
+			destination: {
+				latitude: 17.737166, 
+				longitude: -92.624627
+			}
+	}],	
+
+	//tabasco
+	[{
+			origin: {
+				latitude: 17.975955,
+				longitude: -93.109319 
+			},
+			destination: {
+				latitude: 17.756782,
+				longitude: -92.650414
+			}
+	}],
+	 
+	 // oaxaca
+	 [{
+			origin: {
+				latitude: 17.049685,
+				longitude: -96.730486
+			},
+			destination: {
+				latitude:17.065574, 
+				longitude: -96.711833
+			}
+	}],
+	 // chilpancingo y acapulco
+	   [{
+			origin: {
+				latitude: 17.388335,
+				longitude: -99.468782 
+			},
+			destination: {
+				latitude: 16.924904, 
+				longitude: -99.803672
+			}
+	}],
+	 //  tepic a puerto vallarta
+	   [{
+			origin: {
+				latitude: 21.449612,
+				longitude: -104.882017  
+			},
+			destination: {
+				latitude: 20.675003, 
+				longitude: -105.226184
+			}
+	}],   
+	  //tepic santiago ixcuintla
+	  [{
+			origin: {
+				latitude: 21.534469,
+				longitude: -104.935942 
+			},
+			destination: {
+				latitude: 21.823781, 
+				longitude: -105.183226
+			}
+	}],
+
+
+
 
 	//queretaro to queretaro
 		[{
