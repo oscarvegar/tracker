@@ -37,7 +37,7 @@ app.controller( "SolicitudCtrl", function($scope, $http, $rootScope, $location, 
         if (!itemActual) {
             $scope.lista.push({
                 Producto: p,
-                Cantidad: 1,
+                Cantidad: 100,
                 Unidad:p.Unidad
             });
         } else {
