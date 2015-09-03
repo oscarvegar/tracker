@@ -40,7 +40,7 @@ app.controller( "DashboardCtrl", function($scope, $http, $rootScope, $location, 
 	}
 
 	io.socket.on('updateTracker',function(obj){
-	  	//console.info("UN TRACKER LLEGA",obj)
+	  	console.info("UN TRACKER LLEGA",obj)
 	  	obj.data.id = eval(obj.data.id);
 	  	if(!$scope.transportistas[obj.data.id]) {
 	  		$scope.transportistas[obj.data.id] = {};
@@ -69,7 +69,7 @@ app.controller( "DashboardCtrl", function($scope, $http, $rootScope, $location, 
   		}
   		$scope.transportistas[obj.data.id].show = false;
   		//console.log("transportistas_: ", $scope.transportistas );
-		$scope.$apply();
+		$scope.$applyAsync();
 	});
 
 	$scope.windowOptions = { visible: false, height:400 };

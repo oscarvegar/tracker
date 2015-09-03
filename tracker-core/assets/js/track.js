@@ -10,8 +10,8 @@ app.controller("TrackController", function($scope, $http, $rootScope, $location)
 });
 
 
-app.config(function( $stateProvider, $urlRouterProvider, $locationProvider ){
-  
+app.config(function( $stateProvider, $urlRouterProvider, $locationProvider, $httpProvider ){
+   $httpProvider.useApplyAsync(true);
   $urlRouterProvider.otherwise('dashboard');
  $stateProvider
  .state('dashboard',{
