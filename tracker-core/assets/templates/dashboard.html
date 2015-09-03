@@ -5,7 +5,9 @@
 		</style>
 		
 		<ui-gmap-google-map center='map.center' zoom='map.zoom'>
-			<ui-gmap-markers models="puntos" coords="'self'" icon="'icon'">
+			
+			<ui-gmap-markers models="puntos" coords="'self'" icon="'icon'" click="mostrarDatos">
+	        
 	        </ui-gmap-markers>
 	        
 	        <ui-gmap-markers models="transportistas" coords="'self'" icon="'icon'"
@@ -65,4 +67,33 @@
 			</div><!-- /.modal-content -->
 		</div><!-- /.modal-dialog -->
 	</div><!-- /.modal -->
+
+
+	<div id="modalPuntos" class="modal fade">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title">INFORMACIÓN DE
+					<span ng-show="puntoData.icon.url==='office-building.png'"> CEDIS </span>
+					<span ng-show="puntoData.icon.url==='parkinggarage.png'"> TERMINALES </span>
+					</h4>
+				</div>
+				<div class="modal-body">
+					<div class="row" align="center">
+					  	<h2><div style="width:100%">{{puntoData.title}}</div></h2>
+					</div>
+					<div class="row" align="center">
+					  	<h3><div>{{puntoData.direccion}}</div></h3>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">
+						Cerrar
+					</button>
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+
 </div>
