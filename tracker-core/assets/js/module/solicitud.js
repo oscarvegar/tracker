@@ -9,7 +9,21 @@ app.controller( "SolicitudCtrl", function($scope, $http, $rootScope, $location, 
     $scope.pedido= [];
     $scope.pedido.User="Ing. Juan Carlos Pereyra Gonzalez"
     $scope.lista = [];
+    $scope.obras= [];
 
+
+      $http.get('/api/obra/getObras').then(function(res) {
+            $scope.obras = res.data;
+          
+        });
+
+
+    $scope.direccion = function(no){
+                        
+        $scope.dire= [];  
+        $scope.dire= no.direccion;     
+                            
+    };
 
     $scope.agregar = function (p) {
         var itemActual;

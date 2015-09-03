@@ -13,21 +13,17 @@
  					<br/>
 	                  <div class="form-group">
 					  <label for="sel1">Nombre de la Obra</label>
-					  <select class="form-control" id="sel1">
-					    <option>Torre Reforma</option>
-					    <option>Centro de Entrenamiento de Bolo</option>
-					    <option>Consejo de la Judicatura Federal</option>
-					  </select>
+
+				    <div class="select-container">
+							<select  class="form-control" ng-model="obra.no" value="{{obra.title}}" ng-options="obra.title for obra in obras " ng-change="direccion(obra.no)" required="true">
+								<option value="" selected="selected">SELECCIONA</option>
+			                </select>
+						</div>
 			 		</div>
 
- 					<br/>
 	 			 	<div class="form-group">
 					  <label for="sel1">Dirección de la Obra</label>
-					  <select class="form-control" id="sel1">
-					    <option>Reforma 296 col. Juarez D.P 06600</option>
-					    <option>Av. Aviación No. 5851 en la estrada Zapopan, Jalisco C.P. 45100</option>
-					    <option>Insurgentes 1961 San Angel Inn Alvaro Obregon</option>
-					  </select>
+					  <input type="text" ng-model="dire" class="form-control" ng-disabled="true">
 				  	</div>
 
 
