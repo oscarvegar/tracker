@@ -40,26 +40,24 @@ app.controller( "DashboardCtrl", function($scope, $http, $rootScope, $location, 
 	}
 
 	io.socket.on('updateTracker',function(obj){
-	  	//console.info("UN TRACKER LLEGA",obj)
+	  	console.info("UN TRACKER LLEGA",obj)
 	  	obj.data.id = eval(obj.data.id);
+	  	
 	  	if(!$scope.transportistas[obj.data.id]) {
 	  		$scope.transportistas[obj.data.id] = {};
-	  		$scope.transportistas[obj.data.id].icon = {};
-	  		$scope.transportistas[obj.data.id].show = false;
 	  	}
-	  	if( obj.data.first ){
-	  		$scope.transportistas[obj.data.id].onClick = function(){
-	  			console.log("Clicked " + $scope.transportistas[obj.data.id].conductor);
-	            $scope.transportistas[obj.data.id].show = !$scope.transportistas[obj.data.id].show;
-	  		};
-	  	}
+
 	  	$scope.transportistas[obj.data.id].id = obj.data.id;
 	  	$scope.transportistas[obj.data.id].latitude = eval(obj.data.latitude);
 	  	$scope.transportistas[obj.data.id].longitude = eval(obj.data.longitude);
 		$scope.transportistas[obj.data.id].icon = {};
   		$scope.transportistas[obj.data.id].icon.url = obj.data.icon;
   		$scope.transportistas[obj.data.id].icon.scaledSize = $scope.markerIconSize;	
-  		$scope.transportistas[obj.data.id].conductor = obj.data.conductor;
+  		
+  		if( obj.data.conductor ){
+  			$scope.transportistas[obj.data.id].conductor = obj.data.conductor;
+  		}
+
   		$scope.transportistas[obj.data.id].onClick = function( marker ){
   			console.log("Clicked ", marker.model);
             //marker.model.show = !marker.model.show;
@@ -67,7 +65,8 @@ app.controller( "DashboardCtrl", function($scope, $http, $rootScope, $location, 
             $('#myModal').modal('show')
             $scope.$apply();
   		}
-  		$scope.transportistas[obj.data.id].show = false;
+
+  		//$scope.transportistas[obj.data.id].show = false;
   		//console.log("transportistas_: ", $scope.transportistas );
 		$scope.$applyAsync();
 	});
