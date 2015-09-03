@@ -40,7 +40,7 @@ app.controller( "DashboardCtrl", function($scope, $http, $rootScope, $location, 
 	}
 
 	io.socket.on('updateTracker',function(obj){
-	  	console.info("UN TRACKER LLEGA",obj)
+	  	//console.info("UN TRACKER LLEGA",obj)
 	  	obj.data.id = eval(obj.data.id);
 	  	if(!$scope.transportistas[obj.data.id]) {
 	  		$scope.transportistas[obj.data.id] = {};
