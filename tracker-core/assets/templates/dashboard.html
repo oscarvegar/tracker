@@ -77,14 +77,20 @@
 					<h4 class="modal-title">INFORMACIÓN DE
 					<span ng-show="puntoData.icon.url==='office-building.png'"> CEDIS </span>
 					<span ng-show="puntoData.icon.url==='parkinggarage.png'"> TERMINALES </span>
+					<span ng-show="puntoData.icon.url==='construction.png'"> OBRAS </span>
 					</h4>
 				</div>
 				<div class="modal-body">
+					<span ng-show="puntoData.icon.url==='construction.png'" style="width:100%">
+						<div class="row" align="center" style="width:100%">
+					  		<h3>OBRA NO. {{puntoData.no}} </h3>
+						</div>					
+					</span>
 					<div class="row" align="center">
-					  	<h2><div style="width:100%">{{puntoData.title}}</div></h2>
+					  	<h3><div style="width:100%">{{puntoData.title}}</div></h3>
 					</div>
 					<div class="row" align="center">
-					  	<h3><div>{{puntoData.direccion}}</div></h3>
+					  	<h4><div>{{puntoData.direccion}}</div></h4>
 					</div>
 				</div>
 				<div class="modal-footer">
