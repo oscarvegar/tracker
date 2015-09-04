@@ -283,8 +283,8 @@ var routes = [
     // oaxaca- tehuantepec
 	[{
 			origin: {
-				latitude:  17.033553, 
-				longitude: -96.612416
+				latitude:  16.665072,  
+				longitude: -96.303489
 			},
 			destination: {
 				latitude: 16.348928,  
