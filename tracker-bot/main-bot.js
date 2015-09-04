@@ -259,8 +259,8 @@ var routes = [
 	//tabasco
 	[{
 			origin: {
-				latitude: 17.975955,
-				longitude: -93.109319 
+				latitude:  16.844364, 
+				longitude: -96.369542
 			},
 			destination: {
 				latitude: 17.756782,
@@ -269,7 +269,7 @@ var routes = [
 	}],
 	 
 	 // oaxaca
-	 [{
+	 /*[{
 			origin: {
 				latitude: 17.049685,
 				longitude: -96.730486
@@ -277,6 +277,18 @@ var routes = [
 			destination: {
 				latitude:17.065574, 
 				longitude: -96.711833
+			}
+	}],*/
+
+    // oaxaca- tehuantepec
+	[{
+			origin: {
+				latitude:  17.033553, 
+				longitude: -96.612416
+			},
+			destination: {
+				latitude: 16.348928,  
+				longitude: -95.333857 
 			}
 	}],
 	 // chilpancingo y acapulco
