@@ -14,7 +14,8 @@ module.exports = {
   	},
   	estado:{
   		model:'estado'
-  	}
+  	},
+  	locacion:'json',//{type:'string',coordinates:[98.378282,-107.23829292]}
   }
 };
 
