@@ -6,6 +6,11 @@
  */
 
 module.exports = {
-	
+	all:function(req,res){
+		Productos.find().then(function(data){
+			return res.json(data)
+		})
+		
+	}
 };
 

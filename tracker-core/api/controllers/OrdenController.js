@@ -9,7 +9,14 @@ module.exports = {
 	'place':function(req,res){
 		var order = req.allParams();
 		var queries = [];
+		console.info("ORDER :::",order)
 		order.location = {type:"Point",coordinates:order.location.coordinates};
+		order.direccionCompleta = order.direccion.calle 
+		+" "+order.direccion.no_ext
+		+"COL. "+order.direccion.colonia
+		+", "+order.direccion.del_mun
+		+", "+order.direccion.estado
+		+"C.P. "+order.cp
 		queries.push(Repartidor.findOne({currentLocation:{$near:{$geometry:{type:"Point",coordinates:order.location.coordinates}}}}));
 		queries.push(Modelorama.findOne({location:{$near:{$geometry:{type:"Point",coordinates:order.location.coordinates}}}}));
 		delete order.coordinates;

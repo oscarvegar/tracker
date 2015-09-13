@@ -45,7 +45,7 @@ app.controller( "DashboardCtrl", function($scope, $http, $rootScope, $location, 
 	   		for(var p in modeloramas){
 	   			$scope.modeloramas[p]={};
 	  			$scope.modeloramas[p].id = modeloramas[p].id;
-	   			var icon = "office-building.png";
+	   			var icon = "/office-building.png";
 
 		  		$scope.modeloramas[p].icon = {};
 		  		$scope.modeloramas[p].icon.url = icon;
@@ -72,7 +72,14 @@ app.controller( "DashboardCtrl", function($scope, $http, $rootScope, $location, 
 	}
 
 	io.socket.on('update',function(obj){
-		$scope.renderPosition(obj);
+		console.info("UPDATE DE POSICIÓN ;;; ",obj)
+		for(var i in $scope.transportistas){
+			if($scope.transportistas[i].id==obj.id){
+				$scope.renderPosition(obj,i);
+				break;
+			}
+		}
+		
 	});
 
 	$scope.renderPosition = function(obj,index){

@@ -8,6 +8,7 @@
 module.exports = {
 	updateLocation:function(req,res){
 		var params = req.allParams();
+		console.log("UPDATE UBICACION ",params);
 		sails.sockets.broadcast("repartidor", "update", params); 
 		Repartidor.update({id:params.id},{currentLocation:{type:"Point",coordinates:params.coordinates}})
 		.then(function(repartidor){
