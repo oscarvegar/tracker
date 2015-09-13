@@ -33,7 +33,6 @@ module.exports = {
 			var URL_GET = 'https://maps.googleapis.com/maps/api/directions/json?origin=' + resultados[0].currentLocation.coordinates[1]+","+resultados[0].currentLocation.coordinates[0]
 			+ '&destination='+order.location.coordinates[1]+","+order.location.coordinates[0]
 			+ '&waypoints='+ resultados[1].location.coordinates[1]+","+resultados[1].location.coordinates[0]
-			+ '&&mode=bicycling'
 			+ '&key='+API_KEY;
 
 			console.info("URL DE GOOGLE DIRECTIONS >>>",URL_GET)
