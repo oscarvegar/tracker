@@ -15,6 +15,12 @@ module.exports = {
 			res.json({code:1})
 		})
 	},
+	all:function(req,res){
+		Repartidor.find()
+		.then(function(data){
+			res.json(data)
+		})
+	},
 	subscribe:function(req,res){
 		sails.sockets.join(req.socket, "repartidor");
 		console.log("NUEVO CLIENTE",req.socket.id)
