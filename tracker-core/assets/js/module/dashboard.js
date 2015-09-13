@@ -69,6 +69,17 @@ app.controller( "DashboardCtrl", function($scope, $http, $rootScope, $location, 
                 $scope.detenidos[p].icon.scaledSize = $scope.markerIconSize;
             }
         });*/
+
+		console.log("Ir a detalle");
+
+
+    	$http.get("/api/detalleorden/getDetalle").success(function(data){
+  				$scope.detalleOrder = data[0];
+  				console.log("detalleActual",$scope.detalleOrder);
+
+		})    	
+
+
 	}
 
 	io.socket.on('update',function(obj){
@@ -142,26 +153,38 @@ app.controller( "DashboardCtrl", function($scope, $http, $rootScope, $location, 
     };
 
     
-    
-    $scope.verDetalle = function(){
-    	console.log("Ir a detalle");
-    	$('#myModal').modal('hide')
-    	$timeout(function(){
-    		if( $rootScope.count === 6 ) $rootScope.count = 0;
-	    	if( $rootScope.count === 0 ){
-	    		$state.go("detalle", true);
-	    		//window.location.href="/detalle";
-	    		//$state.go( "detalle" );
-	    	}else{
-	    		//window.location.href="/detalle" + $scope.count;
-	    		$state.go("detalle" + $rootScope.count, true);
-	    	}
-	    	$rootScope.count++;
-    	},400,false)
-    	
-    };
+
 
   	$scope.init();
+
+  
+    $scope.verDetalle = function(){
+    	console.log("Ir a detalle");
+
+
+    	$http.get("/api/detalleorden/getDetalle").success(function(data){
+  				$scope.detalleOrder = data[0];
+  				console.log("detalleActual",$scope.detalleOrder);
+	           // $('#myModal').modal('show')
+
+		    	$('#myModal').modal('hide');
+		    	$timeout(function(){
+		    		if( $rootScope.count === 6 ) $rootScope.count = 0;
+			    	if( $rootScope.count === 0 ){
+			    		$state.go("detalle", true);
+			    		//window.location.href="/detalle";
+			    		//$state.go( "detalle" );
+			    	}else{
+			    		//window.location.href="/detalle" + $scope.count;
+			    		//$state.go("detalle" + $rootScope.count, true);
+			    		$state.go("detalle", true);
+			    	}
+			    	$rootScope.count++;
+		    	},400,false)
+
+		})    	
+    	
+    };
 
 
 });

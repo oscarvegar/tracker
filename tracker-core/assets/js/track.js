@@ -36,7 +36,8 @@ app.config(function( $stateProvider, $urlRouterProvider, $locationProvider, $htt
   })
   .state('detalle',{
     url: '/detalle',
-    templateUrl: 'templates/detalle.html'
+    templateUrl: 'templates/detalle.html',
+    controller: 'DashboardCtrl'
   })
   .state('detalle1',{
     url: '/detalle1',
@@ -60,7 +61,8 @@ app.config(function( $stateProvider, $urlRouterProvider, $locationProvider, $htt
   })
   .state('detalleOrden',{
     url: '/orden/:id',
-    templateUrl: '/templates/detalle.html'
+    templateUrl: '/templates/detalle.html',
+    controller: 'DashboardCtrl'
   });
 
   $locationProvider.html5Mode({

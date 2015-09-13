@@ -6,6 +6,15 @@
  */
 
 module.exports = {
+
+	 getDetalle:function(req,res){
+	 	var params = req.allParams();
+	 	DetalleOrden.find().populate('orden').populate('producto').then(function(dataAll){
+	 		console.log(dataAll);
+	  		res.json(dataAll);
+	 	});
+
+	 }
 	
 };
 

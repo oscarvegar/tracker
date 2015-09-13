@@ -27,7 +27,10 @@
                 </span></th>
                <th>
  			          <a href="/detalle">
-                <a href="/orden/{{orden.id}}" target="_blank" type="button" class="btn btn-primary col-md-12">Detalle</button>
+                
+                <a href="/orden/{{orden.id}}" target="_blank" type="button" ng-click="verDetalle(order.id)" class="btn btn-primary col-md-12">Detalle</button>
+                   <!--<a target="_blank" type="button" ng-click="verDetalle(order.id)" class="btn btn-primary col-md-12">Detalle</button>-->
+                </a>
                 </a>
               </th> 
             </tr>

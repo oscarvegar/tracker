@@ -1,5 +1,5 @@
 var app = angular.module( "track-reporte", ['ui.router','ui.bootstrap'] );
-app.controller( "ReporteCtrl", function($scope, $http, $rootScope, $location, $log) {
+app.controller( "ReporteCtrl", function($scope, $http, $rootScope, $location, $log, $timeout, $state) {
     
     $scope.init = function(){
         $scope.ordenes = [];
@@ -39,10 +39,27 @@ app.controller( "ReporteCtrl", function($scope, $http, $rootScope, $location, $l
       $log.log('Page changed to: ' + $scope.currentPage);
     };
 
+
+    $scope.verDetalle = function(ordenId){
+      console.log("Ir a detalle");
+      
+        $http.get("/api/detalleorden/getDetalle").success(function(data){
+          $scope.detalleOrder = data[0];
+          console.log("detalleActual",$scope.detalleOrder);
+
+    })      
+      
+    };
+
       $scope.maxSize = 5;
       $scope.bigTotalItems = 175;
       $scope.bigCurrentPage = 1;
 
     $scope.init();
+
+
+
+
+
   
 });
