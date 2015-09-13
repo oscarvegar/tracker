@@ -1,6 +1,7 @@
 var app = angular.module( "track-solicitud", ['ui.router'] );
 app.controller( "SolicitudCtrl", function($scope, $http, $rootScope, $location, $log) {
-
+      
+      
 	$rootScope.tituloPagina = "Crear Solicitud";
     $rootScope.iconoPagina = "icon-edit";
 
@@ -92,6 +93,11 @@ app.controller( "SolicitudCtrl", function($scope, $http, $rootScope, $location, 
       $scope.bigCurrentPage = 1;
 
   
+
+
+
+
+
 });
 
 

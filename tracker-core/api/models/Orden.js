@@ -19,6 +19,9 @@ module.exports = {
 		direccion:'json',
 		modelorama:{
 			model:'modelorama'
+		},
+		repartidor:{
+			model:'repartidor'
 		}
 	}
 };

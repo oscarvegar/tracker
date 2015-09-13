@@ -36,6 +36,12 @@ module.exports.routes = {
   '/': {
     view: 'homepage'
   },
+  '/reporte': {
+    view: 'homepage'
+  },
+  '/orden/:id': {
+    view: 'homepage'
+  },
   '/login':{
     view:'empty',
     locals: {

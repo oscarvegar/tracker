@@ -1,5 +1,25 @@
 var app = angular.module( "track-reporte", ['ui.router','ui.bootstrap'] );
 app.controller( "ReporteCtrl", function($scope, $http, $rootScope, $location, $log) {
+    
+    $scope.init = function(){
+        $scope.ordenes = [];
+        console.log("INIT DE SOLICITUD DASH")
+        io.socket.get('/api/orden/subscribe',function(res){
+            console.info("SUSCRITO A SOCKET ORDENES", res)
+            $scope.ordenes = res.ordenes;
+            $scope.$apply()
+        }); 
+      };
+
+      io.socket.on('create',function(obj){
+        console.log("Orden Recibida",obj)
+        $scope.nuevaOrden = obj;
+        $("#modalNewOrden").modal();
+        $scope.ordenes.push(obj);
+        $scope.$apply()
+      });
+
+      
 
     $rootScope.tituloPagina = "Mis Solicitudes";
     $rootScope.iconoPagina = "icon-list";
@@ -23,6 +43,6 @@ app.controller( "ReporteCtrl", function($scope, $http, $rootScope, $location, $l
       $scope.bigTotalItems = 175;
       $scope.bigCurrentPage = 1;
 
-    
+    $scope.init();
   
 });

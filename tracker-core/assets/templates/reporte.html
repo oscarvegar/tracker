@@ -7,170 +7,70 @@
               <th>Id Pedido</th>
               <th>Fecha de Pedido</th>
               <th>Productos Ordenados</th>
+              <th>Nombre Cliente</th>
               <th>Nombre Repartidor</th>
-              <th>Codigo Unidad Repartidora</th>
+              <th>Código Postal de Entrega</th>
               <th>Estatus Pedido</th>
               <th>Detalle Pedido</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>1011</td>
-              <td>{{date | date:'yyyy-MM-dd'}}</td>
-              <td>5</td>
-              <td>Ramón García Zarate</td>
-              <th>189892312</th>
-			  <th><span class="label label-default ng-binding" style="background-color: #fbca04;">
-                  Retrasado
-                </span></th>
-               <th>
- 			  <a href="/detalle">
-                <button type="button" class="btn btn-primary col-md-12">Detalle</button>
-                </a>
-              </th> 
-            </tr>
-            <tr>
-              <td>1027</td>
-              <td>{{date | date:'yyyy-MM-dd'}}</td>
-              <td>2</td>
-              <td>Carlos Villanueva Ortiz</td>
-              <th>174843298</th>
-			  <th><span class="label label-default ng-binding" style="background-color: #207de5;">
-                  Entregado
-                </span></th>
-                <th>
- 			  <a href="/detalle">
-                <button type="button" class="btn btn-primary col-md-12">Detalle</button>
-                </a>
-              </th>
-            </tr>
-            <tr>
-              <td>1030</td>
-              <td>{{date | date:'yyyy-MM-dd'}}</td>
-              <td>1</td>
-              <td>Enrique Acosta Aguilar</td>
-              <th>284821123</th>
-			  <th><span class="label label-default ng-binding" style="background-color: #207de5;">
-                  Entregado
-                </span></th>
-               <th>
- 			  <a href="/detalle">
-                <button type="button" class="btn btn-primary col-md-12">Detalle</button>
-                </a>
-              </th> 
-            </tr>
-            <tr>
-              <td>1035</td>
-              <td>{{date | date:'yyyy-MM-dd'}}</td>
-              <td>3</td>
-              <td>Israel Mendieta Pacheco</td>
-              <th>164365433</th>
-			  <th><span class="label label-default ng-binding" style="background-color: #fbca04;">
-                  Retrasado
-                </span></th>
-               <th>
- 			  <a href="/detalle3">
-                <button type="button" class="btn btn-primary col-md-12">Detalle</button>
-                </a>
-              </th> 
-            </tr>
-            <tr>
-              <td>1040</td>
-              <td>{{date | date:'yyyy-MM-dd'}}</td>
-              <td>5</td>
-              <td>Hugo Escobar Cuanalo</td>
-              <th>134332987</th>
-			  <th><span class="label label-default ng-binding" style="background-color: #e11d21;">
-                 Fuera de Tiempo
-                </span></th>
-               <th>
- 			  <a href="/detalle1">
-                <button type="button" class="btn btn-primary col-md-12">Detalle</button>
-                </a>
-              </th> 
-            </tr>
-            <tr>
-              <td>1043</td>
-              <td>{{date | date:'yyyy-MM-dd'}}</td>
-              <td>1</td>
-              <td>Antonio Molina Guajardo</td>
-              <th>134332345</th>
-			  <th><span class="label label-default ng-binding" style="background-color: #01DF01;">
+            <tr ng-repeat="orden in ordenes | orderBy:'-createdAt'">
+              <td>{{orden.id}}</td>
+              <td>{{orden.createdAt | date:'yyyy-MM-dd'}}</td>
+              <td>{{orden.location}}</td>
+              <td>{{orden.usuario.username}}</td>
+              <td>{{orden.repartidor.nombre}}</td>
+              <th>{{orden.modelorama.nombre}}</th>
+			        <th><span class="label label-default ng-binding" style="background-color: #01DF01;">
                  En Tiempo
                 </span></th>
                <th>
- 			  <a href="/detalle5">
-                <button type="button" class="btn btn-primary col-md-12">Detalle</button>
+ 			          <a href="/detalle">
+                <a href="/orden/{{orden.id}}" target="_blank" type="button" class="btn btn-primary col-md-12">Detalle</button>
                 </a>
               </th> 
             </tr>
-            <tr>
-              <td>1050</td>
-              <td>{{date | date:'yyyy-MM-dd'}}</td>
-              <td>4</td>
-              <td>Sandro Reyes Miranda</td>
-              <th>131345433</th>
-			  <th><span class="label label-default ng-binding" style="background-color: #01DF01;">
-                 En Tiempo
-                </span></th>
-               <th>
- 			  <a href="/detalle2">
-                <button type="button" class="btn btn-primary col-md-12">Detalle</button>
-                </a>
-              </th> 
-            </tr>
-            <tr>
-              <td>1051</td>
-              <td>{{date | date:'yyyy-MM-dd'}}</td>
-              <td>7</td>
-              <td>Efrain Medina Flores</td>
-              <th>132123345</th>
-			  <th><span class="label label-default ng-binding" style="background-color: #01DF01;">
-                 En Tiempo
-                </span></th>
-               <th>
- 			  <a href="/detalle">
-                <button type="button" class="btn btn-primary col-md-12">Detalle</button>
-                </a>
-              </th> 
-            </tr>
-			<tr>
-              <td>1057</td>
-              <td>{{date | date:'yyyy-MM-dd'}}</td>
-              <td>11</td>
-              <td>Cesar Montemayor Garza</td>
-              <th>156237893</th>
-			  <th><span class="label label-default ng-binding" style="background-color: #fbca04;">
-                 Retrasado
-                </span></th>
-               <th>
- 			  <a href="/detalle">
-                <button type="button" class="btn btn-primary col-md-12">Detalle</button>
-                </a>
-              </th> 
-            </tr>
-            <tr>
-              <td>1060</td>
-              <td>{{date | date:'yyyy-MM-dd'}}</td>
-              <td>2</td>
-              <td>Juan Carlos Fernandez Aguilar</td>
-              <th>145353627</th>
-			  <th><span class="label label-default ng-binding" style="background-color: #01DF01;">
-                 En Tiempo
-                </span></th>
- 			  <th>
- 			  <a href="/detalle4">
-                <button type="button" class="btn btn-primary col-md-12">Detalle</button>
-                </a>
-              </th>
-            </tr>
+            
 
           </tbody>
         </table>
         </div>
 
 
-         <pagination total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()"></pagination>
+         <pagination total-items="{{ordenes.length}}" ng-model="1" ng-change="pageChanged()"></pagination>
 
     </div>
 </div>
+
+<!-- Modal -->
+  <div class="modal fade" id="modalNewOrden" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 style="color:blue;">Nueva Orden Recibida</h4>
+        </div>
+        <div class="modal-body">
+            Se ha recibido la orden <b>{{nuevaOrden.id}}</b>
+            <br>
+            <br>
+            Repartidor Asignado: <b>{{nuevaOrden.repartidor.nombre}}</b>
+            <br>
+            <br>
+            Modelorama Asignado: <b>{{nuevaOrden.modelorama.nombre}}</b>
+            <br>
+            <br>
+            Dirección de Entrega: <b>{{nuevaOrden.direccion.direccionCompleta}}</b>
+            <br>
+            <br>
+            <a style="float:left;" href="/orden/{{nuevaOrden.id}}" target="_blank" class="btn btn-primary">Ver Detalle</a>
+        </div>
+        <div class="modal-footer">
+          
+        </div>
+      </div>
+    </div>
+  </div> 

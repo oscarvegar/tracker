@@ -56,6 +56,10 @@ app.config(function( $stateProvider, $urlRouterProvider, $locationProvider, $htt
   .state('detalle5',{
     url: '/detalle5',
     templateUrl: 'templates/detalle5.html'
+  })
+  .state('detalleOrden',{
+    url: '/orden/:id',
+    templateUrl: '/templates/detalle.html'
   });
 
   $locationProvider.html5Mode({

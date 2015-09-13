@@ -6,6 +6,10 @@
  */
 
 module.exports = {
-	
+	all:function(req,res){
+		Modelorama.find().then(function(data){
+			return res.json(data);
+		})
+	}
 };
 
