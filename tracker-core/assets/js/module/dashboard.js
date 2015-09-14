@@ -20,10 +20,8 @@ app.controller( "DashboardCtrl", function($scope, $http, $rootScope, $location, 
 	   			
 	   		for(var p in res.ordenes){
 	   			var rep = res.ordenes[p];
-	   			
 		   			$scope.ordenes[p]={};
 		  			$scope.ordenes[p].id = res.ordenes[p].id;
-
 			  		$scope.ordenes[p].icon = {};
 					$scope.ordenes[p].icon.url = res.ordenes[p].icon;
 			  		$scope.ordenes[p].icon.scaledSize = $scope.markerIconSize;
@@ -35,23 +33,7 @@ app.controller( "DashboardCtrl", function($scope, $http, $rootScope, $location, 
 				  	$scope.ordenes[p].mostrarDatos=$scope.detalleModelorama;
 				  	console.log(rep)
 			  		$scope.$apply();
-		   		
 	   		}
-		  /*console.info("res:::::  ", res)
-		  	$scope.puntos = res.puntos;
-		  	for(var p in $scope.puntos){
-		  		var icon = $scope.puntos[p].icon;
-		  		$scope.puntos[p].icon = {};
-		  		$scope.puntos[p].icon.url = icon;
-		  		$scope.puntos[p].icon.scaledSize = $scope.markerIconSize;
-		  		$scope.puntos[p].mostrarDatos=function( marker ){
-		  			console.log("Clicked en puntos", marker.model);
-		            $scope.puntoData = marker.model;
-		            console.log("data:: ", $scope.puntoData);
-		            $('#modalPuntos').modal('show')
-		            $scope.$apply();
-		  		}
-		  	}*/
 	   	}); 
 
 	   	$scope.detalleModelorama = function( marker ){
@@ -112,6 +94,23 @@ app.controller( "DashboardCtrl", function($scope, $http, $rootScope, $location, 
 				break;
 			}
 		}
+		
+	});
+
+	io.socket.on('nuevaOrden',function(orden){
+		var newOrden={};
+		newOrden.id = orden.id;
+  		newOrden.icon = {};
+		newOrden.icon.url = orden.icon;
+  		newOrden.icon.scaledSize = $scope.markerIconSize;
+	  	newOrden.latitude = orden.location.coordinates[1];
+	  	newOrden.longitude = orden.location.coordinates[0];
+	  	newOrden.title = "Orden "+orden.id;
+	  	newOrden.direccion = orden.direccion.direccionCompleta;
+	  	newOrden.detalle = "Repartidor: "+orden.repartidor.nombre;
+	  	newOrden.mostrarDatos=$scope.detalleModelorama;
+	  	$scope.ordenes.push(newOrden);
+  		$scope.$apply();
 		
 	});
 

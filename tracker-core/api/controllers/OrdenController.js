@@ -35,6 +35,7 @@ module.exports = {
 				var rutas = JSON.parse(body).routes;
 				order.repartidor = resultados[0];
 				order.modelorama = resultados[1];
+				order.icon="/icon/orden.png";
 				Orden.create(order).populateAll()
 				.then(function(data){
 					return Orden.findOne({id:data.id}).populateAll();
@@ -42,6 +43,7 @@ module.exports = {
 					data.ruta = polyline.decode(rutas[0].overview_polyline.points);
 					console.log("Orden creada",data);
 					sails.sockets.broadcast("orden", "create", data); 
+					sails.sockets.broadcast("dashboard", "nuevaOrden", data); 
 					res.json({code:1})
 				})
 			})
