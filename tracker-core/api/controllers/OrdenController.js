@@ -22,23 +22,17 @@ module.exports = {
 		+" C.P. "+order.cp
 
 		
-		console.info("ORDER :::",order)
 		queries.push(Repartidor.findOne({currentLocation:{$near:{$geometry:{type:"Point",coordinates:order.location.coordinates}}}}));
 		queries.push(Modelorama.findOne({location:{$near:{$geometry:{type:"Point",coordinates:order.location.coordinates}}}}));
 		
 		Q.all(queries).then(function(resultados){
-			console.info("ASIGNA REPARTIDOR Y MODELORAMA")
-			console.log("REPARTIDOR MAS CERCANO",resultados[0]);
-			console.log("MODELORAMA MAS CERCANO",resultados[1]);
 			var URL_GET = 'https://maps.googleapis.com/maps/api/directions/json?origin=' + resultados[0].currentLocation.coordinates[1]+","+resultados[0].currentLocation.coordinates[0]
 			+ '&destination='+order.location.coordinates[1]+","+order.location.coordinates[0]
 			+ '&waypoints='+ resultados[1].location.coordinates[1]+","+resultados[1].location.coordinates[0]
 			+ '&key='+API_KEY;
 
-			console.info("URL DE GOOGLE DIRECTIONS >>>",URL_GET)
 			request(URL_GET, function (error, response, body) {
 				var rutas = JSON.parse(body).routes;
-				console.info("CONTESTA GOOGLE DIRECTIONS >>>",rutas)
 				order.repartidor = resultados[0];
 				order.modelorama = resultados[1];
 				Orden.create(order).populateAll()

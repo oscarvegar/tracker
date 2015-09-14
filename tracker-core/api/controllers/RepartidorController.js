@@ -9,6 +9,7 @@ module.exports = {
 	updateLocation:function(req,res){
 		var params = req.allParams();
 		console.log("UPDATE UBICACION ",params);
+		params.icon="/icon/vespa.png";
 		sails.sockets.broadcast("repartidor", "update", params); 
 		Repartidor.update({id:params.id},{currentLocation:{type:"Point",coordinates:params.coordinates}})
 		.then(function(repartidor){
@@ -26,7 +27,7 @@ module.exports = {
 		console.log("NUEVO CLIENTE",req.socket.id)
 		Repartidor.find().populateAll().then(function(repartidores){
 			for(var i in repartidores){
-				repartidores[i].icon = "/pickup_green.png",
+				repartidores[i].icon = "/icon/vespa.png",
 				repartidores[i].ordenesActuales = [];
 			}
 			res.json({

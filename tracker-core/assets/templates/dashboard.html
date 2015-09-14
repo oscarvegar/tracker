@@ -8,6 +8,9 @@
 			<ui-gmap-markers models="modeloramas" coords="'self'" icon="'icon'" 
 	        	click="mostrarDatos">
 	        </ui-gmap-markers>
+			<ui-gmap-markers models="ordenes" coords="'self'" icon="'icon'" 
+	        	click="mostrarDatos">
+	        </ui-gmap-markers>
 			 
 	        <ui-gmap-markers models="transportistas" coords="'self'" icon="'icon'" 
 	        	click="onClick">
@@ -33,10 +36,7 @@
 					  	<div class="col-xs-6 col-sm-4">NOMBRE</div>
 					  	<div class="col-xs-6 col-sm-6">{{conductor.nombre}}</div>
 					</div>
-					<div class="row">
-					  	<div class="col-xs-6 col-sm-4">Telefono</div>
-					  	<div class="col-xs-6 col-sm-6">{{conductor.telefono}}</div>
-					</div>
+					
 					<div class="row">
 					  	<div class="col-xs-8 col-sm-4">Ordenes Asignadas</div>
 					  	<div class="col-xs-4 col-sm-6">
@@ -61,8 +61,8 @@
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 					<h4 class="modal-title">INFORMACIÓN DE
-					<span ng-show="puntoData.icon.url==='office-building.png'"> MODELORAMA </span>
-					<span ng-show="puntoData.icon.url==='parkinggarage.png'"> TERMINALES </span>
+					<span ng-show="puntoData.icon.url==='/icon/beer.png'"> MODELORAMA </span>
+					<span ng-show="puntoData.icon.url==='/icon/orden.png'"> ORDENES </span>
 					<span ng-show="puntoData.icon.url==='construction.png'"> OBRAS </span>
 					</h4>
 				</div>
@@ -72,6 +72,9 @@
 					</div>
 					<div class="row" align="center">
 					  	<h4><div>{{puntoData.direccion}}</div></h4>
+					</div>
+					<div class="row" align="center">
+					  	<h4><div>{{puntoData.detalle}}</div></h4>
 					</div>
 				</div>
 				<div class="modal-footer">

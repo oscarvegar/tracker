@@ -3,19 +3,41 @@ app.controller( "DashboardCtrl", function($scope, $http, $rootScope, $location, 
   
 	$scope.puntos = [];
 	$scope.transportistas = [];
-	$scope.markerIconSize = new google.maps.Size(30,30);
+	$scope.markerIconSize = new google.maps.Size(35,35);
 	$scope.conductor = null;
+	$scope.ordenes=[];
 	$scope.init = function(){
 	   	console.info("EN INIT...")
-	   	$scope.map = { center: { latitude: 19.432791, longitude: -99.1335314 }, zoom: 6 };
+	   	$scope.map = { center: { latitude: 19.432791, longitude: -99.1335314 }, zoom: 10 };
 	   	
-	   	io.socket.get('/api/repartidor/subscribe',function(res){
+	   	io.socket.get('/api/dashboard/subscribe',function(res){
 	   		console.log("SUSCRITO A REPARTIDORES")
+	   		console.log("REPARTIDORES ",res.repartidores)
 	   		for(var i in res.repartidores){
 	   			var rep = res.repartidores[i];
 	   			$scope.renderPosition({id:rep.id,icon:rep.icon,coordinates:rep.currentLocation.coordinates,repartidor:rep},i);
 	   		}
-		  	/*console.info("res:::::  ", res)
+	   			
+	   		for(var p in res.ordenes){
+	   			var rep = res.ordenes[p];
+	   			
+		   			$scope.ordenes[p]={};
+		  			$scope.ordenes[p].id = res.ordenes[p].id;
+
+			  		$scope.ordenes[p].icon = {};
+					$scope.ordenes[p].icon.url = res.ordenes[p].icon;
+			  		$scope.ordenes[p].icon.scaledSize = $scope.markerIconSize;
+				  	$scope.ordenes[p].latitude = res.ordenes[p].location.coordinates[1];
+				  	$scope.ordenes[p].longitude = res.ordenes[p].location.coordinates[0];
+				  	$scope.ordenes[p].title = "Orden "+res.ordenes[p].id;
+				  	$scope.ordenes[p].direccion = res.ordenes[p].direccion.direccionCompleta;
+				  	$scope.ordenes[p].detalle = "Repartidor: "+res.ordenes[p].repartidor.nombre;
+				  	$scope.ordenes[p].mostrarDatos=$scope.detalleModelorama;
+				  	console.log(rep)
+			  		$scope.$apply();
+		   		
+	   		}
+		  /*console.info("res:::::  ", res)
 		  	$scope.puntos = res.puntos;
 		  	for(var p in $scope.puntos){
 		  		var icon = $scope.puntos[p].icon;
@@ -45,7 +67,7 @@ app.controller( "DashboardCtrl", function($scope, $http, $rootScope, $location, 
 	   		for(var p in modeloramas){
 	   			$scope.modeloramas[p]={};
 	  			$scope.modeloramas[p].id = modeloramas[p].id;
-	   			var icon = "/office-building.png";
+	   			var icon = "/icon/beer.png";
 
 		  		$scope.modeloramas[p].icon = {};
 		  		$scope.modeloramas[p].icon.url = icon;
