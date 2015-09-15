@@ -219,6 +219,23 @@ app.controller( "DashboardCtrl", function($scope, $http, $rootScope, $location, 
   				$rootScope.detalleOrder =  data;
   				console.log("detalleOrden",$rootScope.detalleOrder);
 
+  				  $rootScope.detalleOrd = new Array();
+				      for(var i=0;i<$rootScope.detalleOrder.length;i++){
+				      	for(var j=0;j<$scope.detalleOrder[i].detalle.length;j++){
+				                 $rootScope.detalleOrd.push({
+				                   "nombre": $rootScope.detalleOrder[i].detalle[j].nombre,
+				                   "presentacion": $rootScope.detalleOrder[i].detalle[j].presentacion,
+				                   "cantidad": $rootScope.detalleOrder[i].detalle[j].cantidad,
+				                   "precio": $rootScope.detalleOrder[i].detalle[j].precio,
+				                   "subtotal": $rootScope.detalleOrder[i].detalle[j].precio,
+				                 });
+				         }        
+				      }
+
+				      console.log("nuevo detalle");
+				      console.log( $rootScope.detalleOrd );
+
+
 		    	$('#myModal').modal('hide');
 		    	$timeout(function(){
 			    		$state.go("orden",{ id: orderId }, true);

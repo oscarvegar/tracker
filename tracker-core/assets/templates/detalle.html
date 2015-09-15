@@ -8,22 +8,20 @@
               <h3 class="form-title form-title-first"><i class="icon-list"></i>Detalle Pedidos</h3>
               <div class="form-group">
 
-                <label>ORDEN ID:   <b>{{detalleOrder[0].value[0].id  | limitTo: -7}}</b>  </label>
-
-                <!--<label>ORDEN ID:   <b>{{detalleOrder[0].orden.id  | limitTo: -7}}</b>  </label>-->
+                <label>ORDEN ID:   <b>{{detalleOrder[0].id  | limitTo: -7}}</b>  </label>
                 </br>
-                <label>FECHA DE ORDEN:  <b>{{detalleOrder[0].value[0].createdAt | date:'dd-MM-yyyy'}}</b> </label>
+                <label>FECHA DE ORDEN:  <b>{{detalleOrder[0].createdAt | date:'dd-MM-yyyy'}}</b> </label>
               <!--  <label>FECHA DE ORDEN:  <b>{{detalleOrder[0].createdAt | date:'dd-MM-yyyy'}}</b> </label>-->
                 </br>
-                <label>DIRECCION DE ENTREGA:  <b>{{detalleOrder[0].value[0].direccionCompleta}}</b> </label>
+                <label>DIRECCION DE ENTREGA:  <b>{{detalleOrder[0].direccionCompleta}}</b> </label>
                 <!--  <label>DIRECCION DE ENTREGA:  <b>{{detalleOrder[0].orden.direccionCompleta}}</b> </label>-->
                 </br>
-                <label>REPARTIDOR ASIGNADO:  <b>{{detalleOrder[0].value[0].repartidor.nombre}}</b> </label>
+                <label>REPARTIDOR ASIGNADO:  <b>{{detalleOrder[0].repartidor.nombre}}</b> </label>
                <!--   <label>REPARTIDOR ASIGNADO:  <b>{{detalleOrder[0].orden.direccionCompleta}}</b> </label>-->
                 </br>
-                <label>NOMBRE MODELORAMA:  <b>{{detalleOrder[0].value[0].modelorama.nombre}}</b> </label>
+                <label>NOMBRE MODELORAMA:  <b>{{detalleOrder[0].modelorama.nombre}}</b> </label>
                 </br>
-                <label>DIRECCION MODELORAMA:  <b>{{detalleOrder[0].value[0].modelorama.direccion}}</b> </label>
+                <label>DIRECCION MODELORAMA:  <b>{{detalleOrder[0].modelorama.direccion}}</b> </label>
                <!--   <label>MODELORAMA ASIGNADO:  <b>{{detalleOrder[0].orden.direccionCompleta}}</b> </label>-->
                 </br>
                 </br>
@@ -46,16 +44,16 @@
                         <td></td>
                         <td></td>
                         <td>TOTAL A PAGAR</td>
-                        <td>{{detalleOrder[0].value[0].totalCompra}}</td>
+                        <td>{{detalleOrder[0].totalCompra}}</td>
                       </tr>
                     </tfoot>
                     <tbody>
-                      <tr ng-repeat="orden in detalleOrder track by $index">
-                        <td>{{orden.value[$index].detalle[$index].nombre}}</td>
-                        <td>{{orden.value[$index].detalle[$index].presentacion}}</td>
-                        <td>{{orden.value[$index].detalle[$index].cantidad}}</td>
-                        <td>{{orden.value[$index].detalle[$index].precio}}</td>
-                        <td>{{orden.value[$index].detalle[$index].subtotal}}</td>
+                      <tr ng-repeat="orden in detalleOrd">
+                        <td>{{orden.nombre}}</td>
+                        <td>{{orden.presentacion}}</td>
+                        <td>{{orden.cantidad}}</td>
+                        <td>{{orden.precio}}</td>
+                        <td>{{orden.subtotal}}</td>
                       </tr>
                     </tbody>
                   </table>

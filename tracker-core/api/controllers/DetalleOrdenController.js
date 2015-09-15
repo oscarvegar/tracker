@@ -13,7 +13,11 @@ module.exports = {
 	 	var params = req.allParams();
 	 	var ordenId = params.orderid;
 	 	console.log(ordenId);
-	 	DetalleOrden.find().where({orden: ordenId}).populate('orden').then(function(dataAll){
+	 	Orden.find().where({id: ordenId}).populateAll().then(function(ordenes){
+			res.json(ordenes);
+		});
+
+	 	/*DetalleOrden.find().where({orden: ordenId}).populate('orden').then(function(dataAll){
 	 		if(dataAll){
 	 			if(dataAll.length>0){
 	 				var result = []
@@ -42,9 +46,7 @@ module.exports = {
 	 		}else{
 			          return res.json(dataAll);
 			        }
-	 		/*console.log(dataAll);
-	  		res.json(dataAll);*/
-	 	});
+	 	});*/
 
 	 }
 	
