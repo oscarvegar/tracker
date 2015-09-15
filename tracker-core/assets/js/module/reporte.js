@@ -59,7 +59,7 @@ app.controller( "ReporteCtrl", function($scope, $http, $rootScope, $location, $l
                            "presentacion": $rootScope.detalleOrder[i].detalle[j].presentacion,
                            "cantidad": $rootScope.detalleOrder[i].detalle[j].cantidad,
                            "precio": $rootScope.detalleOrder[i].detalle[j].precio,
-                           "subtotal": $rootScope.detalleOrder[i].detalle[j].precio,
+                           "subtotal": ($rootScope.detalleOrder[i].detalle[j].cantidad) * ($rootScope.detalleOrder[i].detalle[j].precio),
                          });
                  }        
               }
