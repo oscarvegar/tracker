@@ -90,7 +90,7 @@ app.controller( "DashboardCtrl", function($scope, $http, $rootScope, $location, 
 		if($scope.renderqueue.length==0)return;
 
 		console.info("UPDATE DE POSICIÓN ;;; ",$scope.renderqueue,new Date().getTime())
-		var objs = $scope.renderqueue.splice(0,2);
+		var objs = $scope.renderqueue.splice(0,10);
 		for(var k in objs){
 			var obj = objs[k];
 			if(!obj)continue;
@@ -111,7 +111,18 @@ app.controller( "DashboardCtrl", function($scope, $http, $rootScope, $location, 
 		}
 	},50)
 	io.socket.on('updatePosition',function(obj){
-		$scope.renderqueue.push(obj)
+		var found = false;
+			for(var i in $scope.transportistas){
+				if($scope.transportistas[i].id==obj.id){
+					$scope.renderPosition(obj,i);
+					found = true;
+					break;
+				}
+			}
+			if(!found){
+				
+				$scope.renderPosition(obj,$scope.transportistas.length-1);
+			}
 	});
 
 	io.socket.on('nuevaOrden',function(orden){

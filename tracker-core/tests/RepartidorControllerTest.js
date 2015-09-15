@@ -1,11 +1,11 @@
 var unirest = require('unirest')
 console.log("INIT ::: ",new Date())
 var total = 0;
-var lng = 19;;
-lat = -99;
+var lng = 0;;
+lat = 0;
 var motos = [];
 
-for(var j=0;j<1000;j++){
+for(var j=0;j<500;j++){
 	motos.push({id:new Date().getTime()+j,lat:lat,lng:lng,nextCall:0})
 }
 
@@ -15,7 +15,7 @@ for(i=0;i<10;i++)
 		//var unixtime_ms = new Date().getTime();
     	//while(new Date().getTime() < unixtime_ms + 100) {}
 		lng = lng+=0.0005;
-		var obj = { "id": motos[j].id,"coordinates": [ lat-(randomInt(0,200)/10), lng+(randomInt(0,200)/10) ]};
+		var obj = { "id": motos[j].id,"coordinates": [ lat+(randomInt(-120,130)), lng+(randomInt(-60,70)) ]};
 
 		setTimeout(sendPetition,0,obj,obj);
 		
@@ -27,7 +27,7 @@ function randomInt (low, high) {
 }
 
 function sendPetition(obj){
-	unirest.post("http://localhost:1337/api/repartidor/updateLocation")
+	unirest.post("http://yoplanner.com:1337/api/repartidor/updateLocation")
 			.header('Accept', 'application/json')
 			.send(obj)
 			.end(function (response) {
