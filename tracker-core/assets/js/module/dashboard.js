@@ -1,6 +1,6 @@
 var app = angular.module( "track-dashboard", ['ui.router', 'uiGmapgoogle-maps'] );
 app.controller( "DashboardCtrl", function($scope, $http, $rootScope, $location, $timeout, $state) {
-  
+  	$scope.lastRender = 0;
 	$scope.puntos = [];
 	$scope.transportistas = [];
 	$scope.markerIconSize = new google.maps.Size(35,35);
@@ -85,16 +85,33 @@ app.controller( "DashboardCtrl", function($scope, $http, $rootScope, $location, 
 
 
 	}
+	$scope.renderqueue = [];
+	setInterval(function(){
+		if($scope.renderqueue.length==0)return;
 
-	io.socket.on('update',function(obj){
-		console.info("UPDATE DE POSICIÓN ;;; ",obj)
-		for(var i in $scope.transportistas){
-			if($scope.transportistas[i].id==obj.id){
-				$scope.renderPosition(obj,i);
-				break;
+		console.info("UPDATE DE POSICIÓN ;;; ",$scope.renderqueue,new Date().getTime())
+		var objs = $scope.renderqueue.splice(0,2);
+		for(var k in objs){
+			var obj = objs[k];
+			if(!obj)continue;
+			//console.log("OBJ",obj)
+			//console.log(new Date())
+			var found = false;
+			for(var i in $scope.transportistas){
+				if($scope.transportistas[i].id==obj.id){
+					$scope.renderPosition(obj,i);
+					found = true;
+					break;
+				}
+			}
+			if(!found){
+				
+				$scope.renderPosition(obj,$scope.transportistas.length-1);
 			}
 		}
-		
+	},50)
+	io.socket.on('updatePosition',function(obj){
+		$scope.renderqueue.push(obj)
 	});
 
 	io.socket.on('nuevaOrden',function(orden){
@@ -114,9 +131,21 @@ app.controller( "DashboardCtrl", function($scope, $http, $rootScope, $location, 
 		
 	});
 
+	$scope.init();
+
+	io.socket.on('connect', function(){
+      	console.log('CONECTADO A SERVIDOR');
+  		$scope.init();
+  	});
+
+	io.socket.on('disconnect', function(){
+      console.log('Lost connection to server');
+  	});
+
+
 	$scope.renderPosition = function(obj,index){
 
-  		console.log("transportistas_: ", $scope.transportistas );
+  		//console.log("transportistas_: ", $scope.transportistas );
 	  	if( !obj ) return;
 
 	  	
@@ -176,7 +205,6 @@ app.controller( "DashboardCtrl", function($scope, $http, $rootScope, $location, 
     
 
 
-  	$scope.init();
 
   
     $scope.verDetalle = function(){
