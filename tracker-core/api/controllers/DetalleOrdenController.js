@@ -7,10 +7,12 @@
 
 module.exports = {
 
-	 getDetalle:function(req,res){
+	 'getDetalle/:orderId':function(req,res){
 	 	var params = req.allParams();
-	 	DetalleOrden.find().populate('orden').populate('producto').then(function(dataAll){
-	 		//console.log(dataAll);
+	 	var ordenId = params.orderid;
+	 	console.log(ordenId);
+	 	DetalleOrden.find().where({orden: ordenId}).populateAll().then(function(dataAll){
+	 		console.log(dataAll);
 	  		res.json(dataAll);
 	 	});
 

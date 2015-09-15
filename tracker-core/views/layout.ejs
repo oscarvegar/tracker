@@ -65,9 +65,8 @@
           </ul>-->
           <div class="relative-w">
             <ul class="side-menu side-menu-blue">
-              <li class='current'>
-                <a class='current' href="/">
-                  
+             <li id="dashboard" >
+                <a class='current' href="/" ng-click="showModule(0)">            
                   <i class="icon-rss-sign"></i> Live Dashboard
                 </a>
               </li>
@@ -76,8 +75,8 @@
                   <i class="icon-edit"></i> Crear Solicitud
                 </a>
               </li-->
-              <li>
-                <a class='current' ui-sref="reporte">
+             <li id="solicitudes">
+                <a class='current' ui-sref="reporte" ng-click="showModule(1)">
                   <i class="icon-list"></i> Solicitudes
                 </a>
               </li>

@@ -7,7 +7,9 @@ app.controller( "DashboardCtrl", function($scope, $http, $rootScope, $location, 
 	$scope.conductor = null;
 	$scope.ordenes=[];
 	$scope.init = function(){
-	   	console.info("EN INIT...")
+	   	console.info("EN INIT...");
+	   	var menuDashboard = angular.element( document.querySelector( '#dashboard' ) );
+        menuDashboard.addClass('active'); 
 	   	$scope.map = { center: { latitude: 19.432791, longitude: -99.1335314 }, zoom: 10 };
 	   	
 	   	io.socket.get('/api/dashboard/subscribe',function(res){
@@ -73,16 +75,6 @@ app.controller( "DashboardCtrl", function($scope, $http, $rootScope, $location, 
                 $scope.detenidos[p].icon.scaledSize = $scope.markerIconSize;
             }
         });*/
-
-		console.log("Ir a detalle");
-
-
-    	$http.get("/api/detalleorden/getDetalle").success(function(data){
-  				$scope.detalleOrder = data[0];
-  				console.log("detalleActual",$scope.detalleOrder);
-
-		})    	
-
 
 	}
 
@@ -179,28 +171,18 @@ app.controller( "DashboardCtrl", function($scope, $http, $rootScope, $location, 
   	$scope.init();
 
   
-    $scope.verDetalle = function(){
+    $scope.verDetalle = function(orderId){
     	console.log("Ir a detalle");
+    	console.log(orderId);
 
 
-    	$http.get("/api/detalleorden/getDetalle").success(function(data){
-  				$scope.detalleOrder = data[0];
-  				console.log("detalleActual",$scope.detalleOrder);
-	           // $('#myModal').modal('show')
+    	$http.get("/api/detalleorden/getDetalle/"+orderId).success(function(data){
+  				$rootScope.detalleOrder =  data;
+  				console.log("detalleOrden",$rootScope.detalleOrder);
 
 		    	$('#myModal').modal('hide');
 		    	$timeout(function(){
-		    		if( $rootScope.count === 6 ) $rootScope.count = 0;
-			    	if( $rootScope.count === 0 ){
-			    		$state.go("detalle", true);
-			    		//window.location.href="/detalle";
-			    		//$state.go( "detalle" );
-			    	}else{
-			    		//window.location.href="/detalle" + $scope.count;
-			    		//$state.go("detalle" + $rootScope.count, true);
-			    		$state.go("detalle", true);
-			    	}
-			    	$rootScope.count++;
+			    		$state.go("orden",{ id: orderId }, true);
 		    	},400,false)
 
 		})    	

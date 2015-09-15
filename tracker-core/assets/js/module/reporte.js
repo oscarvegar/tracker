@@ -2,6 +2,10 @@ var app = angular.module( "track-reporte", ['ui.router','ui.bootstrap'] );
 app.controller( "ReporteCtrl", function($scope, $http, $rootScope, $location, $log, $timeout, $state) {
     
     $scope.init = function(){
+        var menuSolicitudes = angular.element( document.querySelector( '#solicitudes' ) );
+        menuSolicitudes.addClass('active'); 
+        var menuDashboard = angular.element( document.querySelector( '#dashboard' ) );
+        menuDashboard.removeClass('active'); 
         $scope.ordenes = [];
         console.log("INIT DE SOLICITUD DASH")
         io.socket.get('/api/orden/subscribe',function(res){
@@ -40,14 +44,19 @@ app.controller( "ReporteCtrl", function($scope, $http, $rootScope, $location, $l
     };
 
 
-    $scope.verDetalle = function(ordenId){
+    $scope.verDetalle = function(orderId){
       console.log("Ir a detalle");
       
-        $http.get("/api/detalleorden/getDetalle").success(function(data){
-          $scope.detalleOrder = data[0];
-          console.log("detalleActual",$scope.detalleOrder);
+       $http.get("/api/detalleorden/getDetalle/"+orderId).success(function(data){
+          $rootScope.detalleOrder =  data;
+          console.log("detalleActual",$rootScope.detalleOrder);
 
-    })      
+          $('#myModal').modal('hide');
+          $timeout(function(){
+              $state.go("detalleOrden",{ id: orderId }, true);
+          },400,false)
+
+    })    
       
     };
 

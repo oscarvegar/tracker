@@ -40,7 +40,9 @@
 					<div class="row">
 					  	<div class="col-xs-8 col-sm-4">Ordenes Asignadas</div>
 					  	<div class="col-xs-4 col-sm-6">
-					  		<b><p ng-repeat="ord in conductor.ordenesActuales"><a href="/orden/{{ord.id}}" target="_blank">{{ord.id}}</a></p></b>
+					  <!--	<b><p ng-repeat="ord in conductor.ordenesActuales"><a href="/orden/{{ord.id}}" target="_blank">{{ord.id}}</a></p></b>-->
+					  	<b><p ng-repeat="ord in conductor.ordenesActuales"><a  href="" target="_blank"  ng-click="verDetalle(ord.id)">{{ord.id  | limitTo: -7}}</a></p></b>
+
 					  	</div>
 					</div>
 				</div>

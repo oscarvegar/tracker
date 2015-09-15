@@ -7,6 +7,22 @@ app.controller("TrackController", function($scope, $http, $rootScope, $location)
   $rootScope.tituloPagina = "Live Dashboard";
   $rootScope.iconoPagina = "icon-rss-sign";
   $rootScope.count = 0;
+  
+    $scope.showModule = function(opc){
+console.log("opcion a escoger");
+    switch (opc) {
+      case 0:
+            var menuSolicitudes = angular.element( document.querySelector( '#solicitudes' ) );
+            menuSolicitudes.removeClass('active'); 
+        break;
+      case 1:
+            var menuDashboard = angular.element( document.querySelector( '#dashboard' ) );
+            menuDashboard.removeClass('active');          
+        break;
+  
+    };
+    };
+
 });
 
 
@@ -55,11 +71,12 @@ app.config(function( $stateProvider, $urlRouterProvider, $locationProvider, $htt
     url: '/detalle4',
     templateUrl: 'templates/detalle4.html'
   })
-  .state('detalle5',{
-    url: '/detalle5',
-    templateUrl: 'templates/detalle5.html'
-  })
   .state('detalleOrden',{
+    url: '/orden/:id',
+    templateUrl: '/templates/detalle.html',
+    controller: 'ReporteCtrl'
+  })
+  .state('orden',{
     url: '/orden/:id',
     templateUrl: '/templates/detalle.html',
     controller: 'DashboardCtrl'

@@ -240,6 +240,7 @@ table {
   }
   .table {
     border-collapse: collapse !important;
+    overflow: hidden;
   }
   .table-bordered th,
   .table-bordered td {

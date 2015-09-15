@@ -7,20 +7,52 @@
             <form action="" role="form">
               <h3 class="form-title form-title-first"><i class="icon-list"></i>Detalle Pedidos</h3>
               <div class="form-group">
-                <label>Orden Id: <b>{{detalleOrder.id}}</b>  </label>
+                <label>ORDEN ID:   <b>{{detalleOrder[0].orden.id  | limitTo: -7}}</b>  </label>
                 </br>
-                <label>Direccion Destino: <b>{{detalleOrder.orden.direccion}}</b> </label>
+                <label>FECHA DE ORDEN:  <b>{{detalleOrder[0].createdAt | date:'dd-MM-yyyy'}}</b> </label>
+                </br>
+                <label>DIRECCION DE ENTREGA:  <b>{{detalleOrder[0].orden.direccionCompleta}}</b> </label>
+                </br>
+                <label>REPARTIDOR ASIGNADO:  <b>{{detalleOrder[0].orden.direccionCompleta}}</b> </label>
+                </br>
+                <label>MODELORAMA ASIGNADO:  <b>{{detalleOrder[0].orden.direccionCompleta}}</b> </label>
                 </br>
                 </br>
-                <label>Compra</label>
-                </br>
-                <label>Cantidad: <b>{{detalleOrder.cantidad}}</b> </label>
-                </br>
-                <label>Producto: <b>{{detalleOrder.producto.descripcion}}</b> </label>
-                </br>
-                <label>Descripcion: <b>{{detalleOrder.producto.presentacion}}</b> </label>    
-                </br>
-                <label>Precio por unidad:  <b>{{detalleOrder.producto.precio}}</b> </label>    
+
+
+                  <div class="table-responsive">
+                    <table class="table table-striped table-bordered table-hover">  
+                    <thead>
+                      <tr>
+                        <th>NOMBRE PRODUCTO</th>
+                        <th>DESCRIPCIÓN</th>
+                        <th>CANTIDAD</th>
+                        <th>PRECIO POR UNIDAD</th>
+                        <th>SUBTOTAL</th>            
+                      </tr>
+                    </thead>
+                    <tfoot>
+                      <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>TOTAL A PAGAR</td>
+                        <td>{{detalleOrder[0].orden.totalCompra}}</td>
+                      </tr>
+                    </tfoot>
+                    <tbody>
+                      <tr ng-repeat="orden in detalleOrder">
+                        <td>{{orden.nombre}}</td>
+                        <td>{{orden.presentacion}}</td>
+                        <td>{{orden.cantidad}}</td>
+                        <td>{{orden.precio}}</td>
+                        <td>{{orden.precio}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+            
+       
+
               </div>     
               <a class="btn btn-primary" href="/reporte"> 
                 REGRESAR 

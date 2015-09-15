@@ -1,12 +1,10 @@
 <div>
-	<div class="tab-pane" id="tab_table">
-        <div class="padded">
-        <table class="table">
+    <div class="table-responsive" style="overflow: hidden; overflow-x:scroll;">
+          <table class="table table-striped table-bordered table-hover">  
           <thead>
             <tr>
               <th>Id Pedido</th>
               <th>Fecha de Pedido</th>
-              <th>Productos Ordenados</th>
               <th>Nombre Cliente</th>
               <th>Nombre Repartidor</th>
               <th>Código Postal de Entrega</th>
@@ -16,21 +14,17 @@
           </thead>
           <tbody>
             <tr ng-repeat="orden in ordenes | orderBy:'-createdAt'">
-              <td>{{orden.id}}</td>
-              <td>{{orden.createdAt | date:'yyyy-MM-dd'}}</td>
-              <td>{{orden.location}}</td>
-              <td>{{orden.usuario.username}}</td>
+              <td>{{orden.id  | limitTo: -7}}</td>
+              <td>{{orden.createdAt | date:'dd-MM-yyyy'}}</td>
+              <td>{{orden.nombre}} {{orden.ap_pat}}</td>
               <td>{{orden.repartidor.nombre}}</td>
               <th>{{orden.modelorama.nombre}}</th>
 			        <th><span class="label label-default ng-binding" style="background-color: #01DF01;">
                  En Tiempo
                 </span></th>
                <th>
- 			          <a href="/detalle">
-                
-                <a href="/orden/{{orden.id}}" target="_blank" type="button" ng-click="verDetalle(order.id)" class="btn btn-primary col-md-12">Detalle</button>
+                <a href="" target="_blank" type="button" ng-click="verDetalle(orden.id)" class="btn btn-primary col-md-12">Detalle</button>
                    <!--<a target="_blank" type="button" ng-click="verDetalle(order.id)" class="btn btn-primary col-md-12">Detalle</button>-->
-                </a>
                 </a>
               </th> 
             </tr>
@@ -38,42 +32,39 @@
 
           </tbody>
         </table>
-        </div>
-
-
-         <pagination total-items="{{ordenes.length}}" ng-model="1" ng-change="pageChanged()"></pagination>
-
-    </div>
+         </div>  
 </div>
+        <!-- <pagination total-items="{{ordenes.length}}" ng-model="1" ng-change="pageChanged()"></pagination>-->
 
-<!-- Modal -->
-  <div class="modal fade" id="modalNewOrden" role="dialog">
-    <div class="modal-dialog">
 
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 style="color:blue;">Nueva Orden Recibida</h4>
+    <!-- Modal -->
+      <div class="modal fade" id="modalNewOrden" role="dialog">
+        <div class="modal-dialog">
+
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 style="color:blue;">Nueva Orden Recibida</h4>
+            </div>
+            <div class="modal-body">
+                Se ha recibido la orden <b>{{nuevaOrden.id}}</b>
+                <br>
+                <br>
+                Repartidor Asignado: <b>{{nuevaOrden.repartidor.nombre}}</b>
+                <br>
+                <br>
+                Modelorama Asignado: <b>{{nuevaOrden.modelorama.nombre}}</b>
+                <br>
+                <br>
+                Dirección de Entrega: <b>{{nuevaOrden.direccion.direccionCompleta}}</b>
+                <br>
+                <br>
+                <a style="float:left;" href="/orden/{{nuevaOrden.id}}" target="_blank" class="btn btn-primary">Ver Detalle</a>
+            </div>
+            <div class="modal-footer">
+              
+            </div>
+          </div>
         </div>
-        <div class="modal-body">
-            Se ha recibido la orden <b>{{nuevaOrden.id}}</b>
-            <br>
-            <br>
-            Repartidor Asignado: <b>{{nuevaOrden.repartidor.nombre}}</b>
-            <br>
-            <br>
-            Modelorama Asignado: <b>{{nuevaOrden.modelorama.nombre}}</b>
-            <br>
-            <br>
-            Dirección de Entrega: <b>{{nuevaOrden.direccion.direccionCompleta}}</b>
-            <br>
-            <br>
-            <a style="float:left;" href="/orden/{{nuevaOrden.id}}" target="_blank" class="btn btn-primary">Ver Detalle</a>
-        </div>
-        <div class="modal-footer">
-          
-        </div>
-      </div>
-    </div>
-  </div> 
+      </div> 
