@@ -45,39 +45,12 @@ app.controller( "ReporteCtrl", function($scope, $http, $rootScope, $location, $l
 
 
     $scope.verDetalle = function(orderId){
-      console.log("Ir a detalle reportes");
-
-      $http.get("/api/detalleorden/getDetalle/"+orderId).success(function(data){
-          $rootScope.detalleOrder =  data;
-          console.log("detalleOrden",$rootScope.detalleOrder);
-
-            $rootScope.detalleOrd = new Array();
-              for(var i=0;i<$rootScope.detalleOrder.length;i++){
-                for(var j=0;j<$scope.detalleOrder[i].detalle.length;j++){
-                         $rootScope.detalleOrd.push({
-                           "nombre": $rootScope.detalleOrder[i].detalle[j].nombre,
-                           "presentacion": $rootScope.detalleOrder[i].detalle[j].presentacion,
-                           "cantidad": $rootScope.detalleOrder[i].detalle[j].cantidad,
-                           "precio": $rootScope.detalleOrder[i].detalle[j].precio,
-                           "subtotal": ($rootScope.detalleOrder[i].detalle[j].cantidad) * ($rootScope.detalleOrder[i].detalle[j].precio),
-                         });
-                 }        
-              }
-
-          $('#myModal').modal('hide');
-          $timeout(function(){
-              $state.go("detalleOrden",{ id: orderId }, true);
-          },400,false)
-
-    })   
-
-      
-      
+      $state.go("detalleOrden",{ id: orderId }, true);
     };
 
-      $scope.maxSize = 5;
-      $scope.bigTotalItems = 175;
-      $scope.bigCurrentPage = 1;
+    $scope.maxSize = 5;
+    $scope.bigTotalItems = 175;
+    $scope.bigCurrentPage = 1;
 
     $scope.init();
 

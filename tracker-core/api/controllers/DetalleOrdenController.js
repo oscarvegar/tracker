@@ -12,42 +12,45 @@ module.exports = {
 	 'getDetalle/:orderId':function(req,res){
 	 	var params = req.allParams();
 	 	var ordenId = params.orderid;
-	 	console.log(ordenId);
-	 	Orden.find().where({id: ordenId}).populateAll().then(function(ordenes){
-			res.json(ordenes);
-		});
+	 	console.log("ordenId",ordenId);
+	 	Orden.findOne().where({id: ordenId}).populateAll().then(function(data){
+	 		var productQ = [];
+	 		for(var i in data.detalle){
+	 			productQ.push(Productos.findOne({id:data.detalle[i].producto}))
+	 		}
+	 		Q.all(productQ).then(function(productos){
+	 			console.log("data.detalle",data.detalle.length,data.detalle)
+	 			console.log("productos",productos.length,productos)
+	 			for(var i in productos){
+	 				if(!productos[i])continue;
+		 			data.detalle[i].producto = productos[i];
+		 		}
+		 		console.log(data)
+		 		res.json(data);
+	 		}).catch(function(err){
+	 			console.error(err)
+	 		})
+		}).catch(function(err){
+			console.log(err)
+		})
 
-	 	/*DetalleOrden.find().where({orden: ordenId}).populate('orden').then(function(dataAll){
-	 		if(dataAll){
-	 			if(dataAll.length>0){
-	 				var result = []
-	 					for(var i=0; i<dataAll.length; i++){
-	 						console.log("valor id orden");
-	 						console.log(dataAll[i].orden.id);
-	 						result.push(
-								Orden.find().where({id: dataAll[i].orden.id}).populateAll()
-	 						);
-	 						
-	 					}
-							Q.all(result)
-							.allSettled(result).then(function(detalleordenes){
-								console.log("Valor mergeado");
-								console.log(detalleordenes);
-								res.json(detalleordenes);
+	 	
 
-							}).catch(function(err,err2){
-							      console.log(err)
-								console.log(err2)
-							});
-
-	 			}else{
-			          return res.json(dataAll);
-			        }
-	 		}else{
-			          return res.json(dataAll);
-			        }
-	 	});*/
-
+	 },
+	 test:function(req,res){
+	 	Orden.findOne({id:"55f87c175b50a9f445a34824"}).populateAll().then(function(data){
+	 		var productQ = [];
+	 		for(var i in data.detalle){
+	 			productQ.push(Productos.find({id:data.detalle[i].producto}))
+	 		}
+	 		Q.all(productQ).then(function(productos){
+	 			for(var i in productos){
+		 			data.detalle[i].producto = productos[i];
+		 			res.json(data);
+		 		}
+	 		})
+	 		
+	 	})
 	 }
 	
 };

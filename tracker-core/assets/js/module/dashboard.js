@@ -6,6 +6,7 @@ app.controller( "DashboardCtrl", function($scope, $http, $rootScope, $location, 
 	$scope.markerIconSize = new google.maps.Size(35,35);
 	$scope.conductor = null;
 	$scope.ordenes=[];
+	$scope.detalles=[];
 	$scope.init = function(){
 	   	console.info("EN INIT...");
 	   	var menuDashboard = angular.element( document.querySelector( '#dashboard' ) );
@@ -29,7 +30,8 @@ app.controller( "DashboardCtrl", function($scope, $http, $rootScope, $location, 
 			  		$scope.ordenes[p].icon.scaledSize = $scope.markerIconSize;
 				  	$scope.ordenes[p].latitude = res.ordenes[p].location.coordinates[1];
 				  	$scope.ordenes[p].longitude = res.ordenes[p].location.coordinates[0];
-				  	$scope.ordenes[p].title = "Orden "+res.ordenes[p].id;
+				  	$scope.ordenes[p].title = "Orden #";
+				  	$scope.ordenes[p].idOrden = res.ordenes[p].id;
 				  	$scope.ordenes[p].direccion = res.ordenes[p].direccion.direccionCompleta;
 				  	$scope.ordenes[p].detalle = "Repartidor: "+res.ordenes[p].repartidor.nombre;
 				  	$scope.ordenes[p].mostrarDatos=$scope.detalleModelorama;
@@ -211,37 +213,12 @@ app.controller( "DashboardCtrl", function($scope, $http, $rootScope, $location, 
 
   
     $scope.verDetalle = function(orderId){
-    	console.log("Ir a detalle");
-    	console.log(orderId);
-
-
-    	$http.get("/api/detalleorden/getDetalle/"+orderId).success(function(data){
-  				$rootScope.detalleOrder =  data;
-  				console.log("detalleOrden",$rootScope.detalleOrder);
-
-  				  $rootScope.detalleOrd = new Array();
-				      for(var i=0;i<$rootScope.detalleOrder.length;i++){
-				      	for(var j=0;j<$scope.detalleOrder[i].detalle.length;j++){
-				                 $rootScope.detalleOrd.push({
-				                   "nombre": $rootScope.detalleOrder[i].detalle[j].nombre,
-				                   "presentacion": $rootScope.detalleOrder[i].detalle[j].presentacion,
-				                   "cantidad": $rootScope.detalleOrder[i].detalle[j].cantidad,
-				                   "precio": $rootScope.detalleOrder[i].detalle[j].precio,
-				                   "subtotal":  ($rootScope.detalleOrder[i].detalle[j].cantidad) * ($rootScope.detalleOrder[i].detalle[j].precio),
-				                 });
-				         }        
-				      }
-
-				      console.log("nuevo detalle");
-				      console.log( $rootScope.detalleOrd );
-
-
-		    	$('#myModal').modal('hide');
-		    	$timeout(function(){
-			    		$state.go("orden",{ id: orderId }, true);
-		    	},400,false)
-
-		})    	
+    	console.log("VER DETALLE KAJSLKAJLKSJLKAJLKS")
+    	$('#modalPuntos').modal('hide')
+    	$('#myModal').modal('hide')
+    	$timeout(function(){
+    		$state.go("detalleOrden",{ id: orderId }, true);
+    	},400)
     	
     };
 
