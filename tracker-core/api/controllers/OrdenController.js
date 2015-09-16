@@ -19,7 +19,7 @@ module.exports = {
 		+" COL. "+order.direccion.colonia
 		+", "+order.direccion.del_mun
 		+", "+order.direccion.estado
-		+" C.P. "+order.cp
+		+" C.P. "+order.direccion.cp
 
 		
 		queries.push(Repartidor.findOne({currentLocation:{$near:{$geometry:{type:"Point",coordinates:order.location.coordinates}}}}));

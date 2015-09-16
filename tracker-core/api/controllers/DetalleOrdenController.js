@@ -25,7 +25,6 @@ module.exports = {
 	 				if(!productos[i])continue;
 		 			data.detalle[i].producto = productos[i];
 		 		}
-		 		console.log(data)
 		 		res.json(data);
 	 		}).catch(function(err){
 	 			console.error(err)
