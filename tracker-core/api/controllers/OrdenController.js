@@ -56,6 +56,7 @@ module.exports = {
 				 			data.detalle[i].producto = productos[i];
 				 		}
 				 		data.detail = data.detalle;
+				 		data.repartidor = resultados[0];
 				 		sails.sockets.broadcast("orden", "create", data); 
 						sails.sockets.broadcast("dashboard", "nuevaOrden", data); 
 						res.json({code:1})	
