@@ -21,7 +21,7 @@ module.exports = {
 		+", "+order.direccion.estado
 		+" C.P. "+order.direccion.cp
 
-		
+		var orderDet = order.detalle;
 		queries.push(Repartidor.findOne({currentLocation:{$near:{$geometry:{type:"Point",coordinates:order.location.coordinates}}}}));
 		queries.push(Modelorama.findOne({location:{$near:{$geometry:{type:"Point",coordinates:order.location.coordinates}}}}));
 		
@@ -42,7 +42,7 @@ module.exports = {
 				}).then(function(data){
 					data.ruta = polyline.decode(rutas[0].overview_polyline.points);
 					console.log("Orden creada",data);
-					data.detalle = order.detalle;
+					data.detalle = orderDet;
 					sails.sockets.broadcast("orden", "create", data); 
 					sails.sockets.broadcast("dashboard", "nuevaOrden", data); 
 					res.json({code:1})
