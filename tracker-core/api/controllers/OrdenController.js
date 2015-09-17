@@ -43,9 +43,26 @@ module.exports = {
 					data.ruta = polyline.decode(rutas[0].overview_polyline.points);
 					console.log("Orden creada",data);
 					data.detalle = orderDet;
-					sails.sockets.broadcast("orden", "create", data); 
-					sails.sockets.broadcast("dashboard", "nuevaOrden", data); 
-					res.json({code:1})
+
+					var productQ = [];
+			 		for(var i in data.detalle){
+			 			productQ.push(Productos.findOne({id:data.detalle[i].producto}))
+			 		}
+			 		Q.all(productQ).then(function(productos){
+			 			console.log("data.detalle",data.detalle.length,data.detalle)
+			 			console.log("productos",productos.length,productos)
+			 			for(var i in productos){
+			 				if(!productos[i])continue;
+				 			data.detalle[i].producto = productos[i];
+				 		}
+				 		sails.sockets.broadcast("orden", "create", data); 
+						sails.sockets.broadcast("dashboard", "nuevaOrden", data); 
+						res.json({code:1})	
+			 		}).catch(function(err){
+			 			console.error(err)
+			 		})
+
+					
 				})
 			})
 		}).catch(function(err){
