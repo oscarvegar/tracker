@@ -22,7 +22,7 @@ module.exports = {
 		+" C.P. "+order.direccion.cp
 
 		var orderDet = order.detalle;
-		queries.push(Repartidor.findOne({currentLocation:{$near:{$geometry:{type:"Point",coordinates:order.location.coordinates}}}}));
+		queries.push(Repartidor.findOne({currentLocation:{$near:{$geometry:{type:"Point",coordinates:order.location.coordinates}}}}).populate('usuario'));
 		queries.push(Modelorama.findOne({location:{$near:{$geometry:{type:"Point",coordinates:order.location.coordinates}}}}));
 		
 		Q.all(queries).then(function(resultados){

@@ -42,7 +42,9 @@ module.exports = {
 		})
 	},
 	calculaRuta:function(req,res){
+console.log(req.allParams())
 		var url = req.param('url');
+		console.info(url)
 		request(url, function (error, response, body) {
 			var rutas = JSON.parse(body).routes;
 			res.json(polyline.decode(rutas[0].overview_polyline.points));
