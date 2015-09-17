@@ -131,7 +131,7 @@ app.controller( "DashboardCtrl", function($scope, $http, $rootScope, $location, 
 	  	newOrden.latitude = orden.location.coordinates[1];
 	  	newOrden.longitude = orden.location.coordinates[0];
 	  	newOrden.title = "Orden #";
-	  	newOrden.idOrden = orden.ordenes[p].id;
+	  	newOrden.idOrden = orden.id;
 	  	newOrden.direccion = orden.direccion.direccionCompleta;
 	  	newOrden.detalle = "Repartidor: "+orden.repartidor.nombre;
 	  	newOrden.mostrarDatos=$scope.detalleModelorama;
