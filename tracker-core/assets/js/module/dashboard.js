@@ -8,6 +8,7 @@ app.controller( "DashboardCtrl", function($scope, $http, $rootScope, $location, 
 	$scope.ordenes=[];
 	$scope.detalles=[];
 	$scope.init = function(){
+
 	   	console.info("EN INIT...");
 	   	var menuDashboard = angular.element( document.querySelector( '#dashboard' ) );
         menuDashboard.addClass('active'); 
@@ -35,6 +36,7 @@ app.controller( "DashboardCtrl", function($scope, $http, $rootScope, $location, 
 				  	$scope.ordenes[p].direccion = res.ordenes[p].direccion.direccionCompleta;
 				  	$scope.ordenes[p].detalle = "Repartidor: "+res.ordenes[p].repartidor.nombre;
 				  	$scope.ordenes[p].mostrarDatos=$scope.detalleModelorama;
+				  	//$scope.ordenes[p].options={animation:window.google.maps.Animation.DROP}
 				  	console.log(rep)
 			  		$scope.$apply();
 	   		}
@@ -120,6 +122,7 @@ app.controller( "DashboardCtrl", function($scope, $http, $rootScope, $location, 
 	});
 
 	io.socket.on('nuevaOrden',function(orden){
+		console.log("NUEVA ORDEN",orden)
 		var newOrden={};
 		newOrden.id = orden.id;
   		newOrden.icon = {};
@@ -131,10 +134,21 @@ app.controller( "DashboardCtrl", function($scope, $http, $rootScope, $location, 
 	  	newOrden.direccion = orden.direccion.direccionCompleta;
 	  	newOrden.detalle = "Repartidor: "+orden.repartidor.nombre;
 	  	newOrden.mostrarDatos=$scope.detalleModelorama;
+	  	newOrden.options={animation:google.maps.Animation.DROP}
 	  	$scope.ordenes.push(newOrden);
   		$scope.$apply();
+
+  		$timeout(function(){
+	  		newOrden.options.animation = google.maps.Animation.BOUNCE;
+			//$scope.$apply();
+	  	},500)
+	  	$timeout(function(){
+	  		newOrden.options.animation = null;
+			//$scope.$apply();
+	  	},5000)
 		
 	});
+
 
 	$scope.init();
 
