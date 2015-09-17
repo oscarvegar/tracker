@@ -5,6 +5,8 @@
  * @help        :: See http://links.sailsjs.org/docs/controllers
  */
 
+var request = require('request');
+var polyline = require('polyline');
 module.exports = {
 	updateLocation:function(req,res){
 		console.log("UPDATE LOC")
@@ -38,6 +40,14 @@ module.exports = {
 				repartidores:repartidores
 			});
 		})
+	},
+	calculaRuta:function(req,res){
+		var url = req.param('url');
+		request(url, function (error, response, body) {
+			var rutas = JSON.parse(body).routes;
+			res.json(polyline.decode(rutas[0].overview_polyline.points));
+		})
+
 	},
 	test:function(req,res){
 		console.log("INIT ::: ",new Date())
