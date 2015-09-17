@@ -21,7 +21,7 @@ module.exports = {
 	},
 	all:function(req,res){
 		Repartidor.find()
-		.then(function(data){
+		.populate('usuario').then(function(data){
 			res.json(data)
 		})
 	},
