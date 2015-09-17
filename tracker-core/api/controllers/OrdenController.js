@@ -55,6 +55,7 @@ module.exports = {
 			 				if(!productos[i])continue;
 				 			data.detalle[i].producto = productos[i];
 				 		}
+				 		data.detail = data.detalle;
 				 		sails.sockets.broadcast("orden", "create", data); 
 						sails.sockets.broadcast("dashboard", "nuevaOrden", data); 
 						res.json({code:1})	
