@@ -16,7 +16,7 @@ module.exports = {
 		
 		params.icon="/icon/vespa.png";
 			sails.sockets.broadcast("dashboard", "updatePosition", params); 	
-		Repartidor.update({id:params.id},{currentLocation:{type:"Point",coordinates:params.coordinates}})
+		Repartidor.update({usuario:params.id},{currentLocation:{type:"Point",coordinates:params.coordinates}})
 		.then(function(repartidor){
 			res.json({code:1})
 		})
