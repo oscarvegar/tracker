@@ -111,7 +111,7 @@ app.controller( "DashboardCtrl", function($scope, $http, $rootScope, $location, 
 		console.log("TRANSPORTISTAS >>>",$scope.transportistas)
 		var found = false;
 			for(var i in $scope.transportistas){
-				if($scope.transportistas[i].repartidor.usuario.id==obj.id){
+				if($scope.transportistas[i].conductor.usuario.id==obj.id){
 					$scope.renderPosition(obj,i);
 					found = true;
 					break;
