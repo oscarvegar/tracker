@@ -110,7 +110,7 @@ app.controller( "DashboardCtrl", function($scope, $http, $rootScope, $location, 
 		console.log("UPDATE POSITION >>>",obj)
 		var found = false;
 			for(var i in $scope.transportistas){
-				if($scope.transportistas[i].id==obj.id){
+				if($scope.transportistas[i].usuario.id==obj.id){
 					$scope.renderPosition(obj,i);
 					found = true;
 					break;

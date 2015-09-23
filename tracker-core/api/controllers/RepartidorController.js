@@ -13,19 +13,13 @@ module.exports = {
 		var params = req.allParams();
 		params.coordinates[0] = parseFloat(params.coordinates[0])
 		params.coordinates[1] = parseFloat(params.coordinates[1])
-		params.icon="/icon/vespa.png"
-		Repartidor.find({usuario:params.id})
-		.then(function(repartidor){
-			params.id = repartidor.id;
-			sails.sockets.broadcast("dashboard", "updatePosition", params); 	
-			Repartidor.update({id:params.id},{currentLocation:{type:"Point",coordinates:params.coordinates}})
-			.then(function(repartidor){
-				res.json({code:1})
-			})
-			
-		})
-		res.json({code:1})
 		
+		params.icon="/icon/vespa.png";
+			sails.sockets.broadcast("dashboard", "updatePosition", params); 	
+		Repartidor.update({id:params.id},{currentLocation:{type:"Point",coordinates:params.coordinates}})
+		.then(function(repartidor){
+			res.json({code:1})
+		})
 	},
 	all:function(req,res){
 		Repartidor.find()
