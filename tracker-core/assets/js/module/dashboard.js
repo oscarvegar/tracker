@@ -108,6 +108,7 @@ app.controller( "DashboardCtrl", function($scope, $http, $rootScope, $location, 
 	},50)
 	io.socket.on('updatePosition',function(obj){
 		console.log("UPDATE POSITION >>>",obj)
+		console.log("TRANSPORTISTAS >>>",$scope.transportistas)
 		var found = false;
 			for(var i in $scope.transportistas){
 				if($scope.transportistas[i].repartidor.usuario.id==obj.id){
