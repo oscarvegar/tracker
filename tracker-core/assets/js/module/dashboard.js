@@ -107,6 +107,7 @@ app.controller( "DashboardCtrl", function($scope, $http, $rootScope, $location, 
 		}
 	},50)
 	io.socket.on('updatePosition',function(obj){
+		console.log("UPDATE POSITION >>>",obj)
 		var found = false;
 			for(var i in $scope.transportistas){
 				if($scope.transportistas[i].id==obj.id){
