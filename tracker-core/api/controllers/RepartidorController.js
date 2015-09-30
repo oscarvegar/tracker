@@ -4,9 +4,9 @@
  * @description :: Server-side logic for managing Repartidors
  * @help        :: See http://links.sailsjs.org/docs/controllers
  */
-
 var request = require('request');
 var polyline = require('polyline');
+
 module.exports = {
 	updateLocation:function(req,res){
 		console.log("UPDATE LOC")
@@ -42,7 +42,7 @@ module.exports = {
 		})
 	},
 	calculaRuta:function(req,res){
-console.log(req.allParams())
+		console.log(req.allParams())
 		var url = req.param('url');
 		console.info(url)
 		request(url, function (error, response, body) {
@@ -71,15 +71,9 @@ console.log(req.allParams())
 		    	console.log("SEND")
 				lng = lng+=0.0005;
 				console.log(lng)
-				sails.sockets.broadcast("dashboard", "updatePosition", { "icon":"/icon/vespa.png","id": motos[j].id,"coordinates": [ motos[j].lat, lng ]}); 
-				
-				
+				sails.sockets.broadcast("dashboard", "updatePosition", { "icon":"/icon/vespa.png","id": motos[j].id,"coordinates": [ motos[j].lat, lng ]});
 			}
 		}
 		res.json("OK")
 	}
-
 };
-
-
-
