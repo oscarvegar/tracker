@@ -45,24 +45,12 @@ app.controller( "ReporteCtrl", function($scope, $http, $rootScope, $location, $l
 
 
     $scope.verDetalle = function(orderId){
-      console.log("Ir a detalle");
-      
-       $http.get("/api/detalleorden/getDetalle/"+orderId).success(function(data){
-          $rootScope.detalleOrder =  data;
-          console.log("detalleActual",$rootScope.detalleOrder);
-
-          $('#myModal').modal('hide');
-          $timeout(function(){
-              $state.go("detalleOrden",{ id: orderId }, true);
-          },400,false)
-
-    })    
-      
+      $state.go("detalleOrden",{ id: orderId }, true);
     };
 
-      $scope.maxSize = 5;
-      $scope.bigTotalItems = 175;
-      $scope.bigCurrentPage = 1;
+    $scope.maxSize = 5;
+    $scope.bigTotalItems = 175;
+    $scope.bigCurrentPage = 1;
 
     $scope.init();
 

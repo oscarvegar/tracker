@@ -1,12 +1,14 @@
 var app = angular.module( "track-dashboard", ['ui.router', 'uiGmapgoogle-maps'] );
 app.controller( "DashboardCtrl", function($scope, $http, $rootScope, $location, $timeout, $state) {
-  
+  	$scope.lastRender = 0;
 	$scope.puntos = [];
 	$scope.transportistas = [];
 	$scope.markerIconSize = new google.maps.Size(35,35);
 	$scope.conductor = null;
 	$scope.ordenes=[];
+	$scope.detalles=[];
 	$scope.init = function(){
+
 	   	console.info("EN INIT...");
 	   	var menuDashboard = angular.element( document.querySelector( '#dashboard' ) );
         menuDashboard.addClass('active'); 
@@ -29,10 +31,12 @@ app.controller( "DashboardCtrl", function($scope, $http, $rootScope, $location, 
 			  		$scope.ordenes[p].icon.scaledSize = $scope.markerIconSize;
 				  	$scope.ordenes[p].latitude = res.ordenes[p].location.coordinates[1];
 				  	$scope.ordenes[p].longitude = res.ordenes[p].location.coordinates[0];
-				  	$scope.ordenes[p].title = "Orden "+res.ordenes[p].id;
+				  	$scope.ordenes[p].title = "Orden #";
+				  	$scope.ordenes[p].idOrden = res.ordenes[p].id;
 				  	$scope.ordenes[p].direccion = res.ordenes[p].direccion.direccionCompleta;
 				  	$scope.ordenes[p].detalle = "Repartidor: "+res.ordenes[p].repartidor.nombre;
 				  	$scope.ordenes[p].mostrarDatos=$scope.detalleModelorama;
+				  	//$scope.ordenes[p].options={animation:window.google.maps.Animation.DROP}
 				  	console.log(rep)
 			  		$scope.$apply();
 	   		}
@@ -77,19 +81,50 @@ app.controller( "DashboardCtrl", function($scope, $http, $rootScope, $location, 
         });*/
 
 	}
+	$scope.renderqueue = [];
+	setInterval(function(){
+		if($scope.renderqueue.length==0)return;
 
-	io.socket.on('update',function(obj){
-		console.info("UPDATE DE POSICIÓN ;;; ",obj)
-		for(var i in $scope.transportistas){
-			if($scope.transportistas[i].id==obj.id){
-				$scope.renderPosition(obj,i);
-				break;
+		console.info("UPDATE DE POSICIÓN ;;; ",$scope.renderqueue,new Date().getTime())
+		var objs = $scope.renderqueue.splice(0,10);
+		for(var k in objs){
+			var obj = objs[k];
+			if(!obj)continue;
+			//console.log("OBJ",obj)
+			//console.log(new Date())
+			var found = false;
+			for(var i in $scope.transportistas){
+				if($scope.transportistas[i].id==obj.id){
+					$scope.renderPosition(obj,i);
+					found = true;
+					break;
+				}
+			}
+			if(!found){
+				
+				$scope.renderPosition(obj,$scope.transportistas.length-1);
 			}
 		}
-		
+	},50)
+	io.socket.on('updatePosition',function(obj){
+		console.log("UPDATE POSITION >>>",obj)
+		var found = false;
+			for(var i in $scope.transportistas){
+				//console.log("TRANSPORTISTA [i]>>>",i,$scope.transportistas[i])
+				if($scope.transportistas[i].conductor.usuario.id==obj.id){
+					$scope.renderPosition(obj,i);
+					found = true;
+					break;
+				}
+			}
+			if(!found){
+				
+				$scope.renderPosition(obj,$scope.transportistas.length-1);
+			}
 	});
 
 	io.socket.on('nuevaOrden',function(orden){
+		console.log("NUEVA ORDEN",orden)
 		var newOrden={};
 		newOrden.id = orden.id;
   		newOrden.icon = {};
@@ -97,18 +132,42 @@ app.controller( "DashboardCtrl", function($scope, $http, $rootScope, $location, 
   		newOrden.icon.scaledSize = $scope.markerIconSize;
 	  	newOrden.latitude = orden.location.coordinates[1];
 	  	newOrden.longitude = orden.location.coordinates[0];
-	  	newOrden.title = "Orden "+orden.id;
+	  	newOrden.title = "Orden #";
+	  	newOrden.idOrden = orden.id;
 	  	newOrden.direccion = orden.direccion.direccionCompleta;
 	  	newOrden.detalle = "Repartidor: "+orden.repartidor.nombre;
 	  	newOrden.mostrarDatos=$scope.detalleModelorama;
+	  	newOrden.options={animation:google.maps.Animation.DROP}
 	  	$scope.ordenes.push(newOrden);
   		$scope.$apply();
+
+  		$timeout(function(){
+	  		newOrden.options.animation = google.maps.Animation.BOUNCE;
+			//$scope.$apply();
+	  	},500)
+	  	$timeout(function(){
+	  		newOrden.options.animation = null;
+			//$scope.$apply();
+	  	},5000)
 		
 	});
 
+
+	$scope.init();
+
+	io.socket.on('connect', function(){
+      	console.log('CONECTADO A SERVIDOR');
+  		$scope.init();
+  	});
+
+	io.socket.on('disconnect', function(){
+      console.log('Lost connection to server');
+  	});
+
+
 	$scope.renderPosition = function(obj,index){
 
-  		console.log("transportistas_: ", $scope.transportistas );
+  		//console.log("transportistas_: ", $scope.transportistas );
 	  	if( !obj ) return;
 
 	  	
@@ -168,24 +227,15 @@ app.controller( "DashboardCtrl", function($scope, $http, $rootScope, $location, 
     
 
 
-  	$scope.init();
 
   
     $scope.verDetalle = function(orderId){
-    	console.log("Ir a detalle");
-    	console.log(orderId);
-
-
-    	$http.get("/api/detalleorden/getDetalle/"+orderId).success(function(data){
-  				$rootScope.detalleOrder =  data;
-  				console.log("detalleOrden",$rootScope.detalleOrder);
-
-		    	$('#myModal').modal('hide');
-		    	$timeout(function(){
-			    		$state.go("orden",{ id: orderId }, true);
-		    	},400,false)
-
-		})    	
+    	console.log("VER DETALLE KAJSLKAJLKSJLKAJLKS")
+    	$('#modalPuntos').modal('hide')
+    	$('#myModal').modal('hide')
+    	$timeout(function(){
+    		$state.go("detalleOrden",{ id: orderId }, true);
+    	},400)
     	
     };
 

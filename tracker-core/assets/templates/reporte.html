@@ -6,8 +6,10 @@
               <th>Id Pedido</th>
               <th>Fecha de Pedido</th>
               <th>Nombre Cliente</th>
+              <th>Destino</th>
               <th>Nombre Repartidor</th>
-              <th>Código Postal de Entrega</th>
+              <th>Modelorama Asignado</th>
+              <th>Direccion Modelorama</th>
               <th>Estatus Pedido</th>
               <th>Detalle Pedido</th>
             </tr>
@@ -17,8 +19,10 @@
               <td>{{orden.id  | limitTo: -7}}</td>
               <td>{{orden.createdAt | date:'dd-MM-yyyy'}}</td>
               <td>{{orden.nombre}} {{orden.ap_pat}}</td>
+              <td>{{orden.direccionCompleta}}</td>
               <td>{{orden.repartidor.nombre}}</td>
               <th>{{orden.modelorama.nombre}}</th>
+              <th>{{orden.modelorama.direccion}}</th>
 			        <th><span class="label label-default ng-binding" style="background-color: #01DF01;">
                  En Tiempo
                 </span></th>

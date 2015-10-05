@@ -19,10 +19,10 @@ module.exports = {
 		+" COL. "+order.direccion.colonia
 		+", "+order.direccion.del_mun
 		+", "+order.direccion.estado
-		+" C.P. "+order.cp
+		+" C.P. "+order.direccion.cp
 
-		
-		queries.push(Repartidor.findOne({currentLocation:{$near:{$geometry:{type:"Point",coordinates:order.location.coordinates}}}}));
+		var orderDet = order.detalle;
+		queries.push(Repartidor.findOne({currentLocation:{$near:{$geometry:{type:"Point",coordinates:order.location.coordinates}}}}).populate('usuario'));
 		queries.push(Modelorama.findOne({location:{$near:{$geometry:{type:"Point",coordinates:order.location.coordinates}}}}));
 		
 		Q.all(queries).then(function(resultados){
@@ -36,15 +36,35 @@ module.exports = {
 				order.repartidor = resultados[0];
 				order.modelorama = resultados[1];
 				order.icon="/icon/orden.png";
-				Orden.create(order).populateAll()
+				Orden.create(order)
 				.then(function(data){
 					return Orden.findOne({id:data.id}).populateAll();
 				}).then(function(data){
 					data.ruta = polyline.decode(rutas[0].overview_polyline.points);
 					console.log("Orden creada",data);
-					sails.sockets.broadcast("orden", "create", data); 
-					sails.sockets.broadcast("dashboard", "nuevaOrden", data); 
-					res.json({code:1})
+					data.detalle = orderDet;
+
+					var productQ = [];
+			 		for(var i in data.detalle){
+			 			productQ.push(Productos.findOne({id:data.detalle[i].producto}))
+			 		}
+			 		Q.all(productQ).then(function(productos){
+			 			console.log("data.detalle",data.detalle.length,data.detalle)
+			 			console.log("productos",productos.length,productos)
+			 			for(var i in productos){
+			 				if(!productos[i])continue;
+				 			data.detalle[i].producto = productos[i];
+				 		}
+				 		data.detail = data.detalle;
+				 		data.repartidor = resultados[0];
+				 		sails.sockets.broadcast("orden", "create", data); 
+						sails.sockets.broadcast("dashboard", "nuevaOrden", data); 
+						res.json({code:1})	
+			 		}).catch(function(err){
+			 			console.error(err)
+			 		})
+
+					
 				})
 			})
 		}).catch(function(err){
