@@ -55,7 +55,7 @@ app.controller( "DashboardCtrl", function($scope, $http, $rootScope, $location, 
 	   		for(var p in modeloramas){
 	   			$scope.modeloramas[p]={};
 	  			$scope.modeloramas[p].id = modeloramas[p].id;
-	   			var icon = "/icon/beer.png";
+	   			var icon = "/icon/drugstore.png";
 
 		  		$scope.modeloramas[p].icon = {};
 		  		$scope.modeloramas[p].icon.url = icon;
