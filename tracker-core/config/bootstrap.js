@@ -121,33 +121,33 @@ module.exports.bootstrap = function(cb) {
     Modelorama.create(
       [
         {
-        nombre :"Modelorama Cerrada De Lago Erene",
+        nombre :"Sucursal Cerrada De Lago Erene",
         direccion:"3Ra Cerrada De Lago Erene No 22 Miguel Hidalgo 11430 D.F.",
         location:{type:'Point',coordinates:[-99.1912866,19.4490307]}
         },
         {
-        nombre :"Modelorama Narvarte Poniente",
+        nombre :"Sucursal Narvarte Poniente",
         direccion:"Calle Pitágoras No 1002 Narvarte Poniente, Benito Juárez 03020 Benito Juárez, D.F.",
         location:{type:'Point',coordinates:[-99.1522758,19.3866443]}
         },
         {
-        nombre :"Modelorama Obrera",
+        nombre :"Sucursal Obrera",
         direccion:"Calle Dr Erazo 73 Obrera, Cuauhtémoc 06720 D.F.",
         location:{type:'Point',coordinates:[-99.1441497,19.4178632]}
         },
         {
-        nombre :"Modelorama Alamos",
+        nombre :"Sucursal Alamos",
         direccion:"Segovia 45 Alamos 03400 Benito Juárez, D.F.",
         location:{type:'Point',coordinates:[-99.1458846,19.4053095]}
 
         },
         {
-        nombre :"Modelorama Agricola Oriental",
+        nombre :"Sucursal Agricola Oriental",
         direccion:"Av Texcoco 122 Juárez Pantitlan 57460 Nezahualcóyotl, Méx.",
         location:{type:'Point',coordinates:[-99.0489731,19.3937812]}
         },
         {
-        nombre :"Modelorama La Noria",
+        nombre :"Sucursal La Noria",
         direccion:"Av. Guadalupe I. Ramírez 660 Tierra Nueva, Xochimilco 16010 Ciudad de México, D.F.",
         location:{type:'Point',coordinates:[-99.1244459,19.2681942]}
         }
